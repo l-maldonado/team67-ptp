@@ -8,26 +8,19 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 import pandas as pd 
+import seaborn as sns
 
 
 # Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 
 # PLACE THE COMPONENTS IN THE LAYOUT
-df = pd.read_csv('https://gist.githubusercontent.com/chriddyp/c78bf172206ce24f77d6363a2d754b59/raw/c353e8ef842413cae56ae3920b8fd78468aa4cb2/usa-agricultural-exports-2011.csv')
+user_cols = ['transaction_processing_amount','isic_section_name']
+bd=pd.read_csv('data/bdfn.csv', usecols=user_cols)
+bd['transaction_processing_amount'] = bd['transaction_processing_amount'].str.replace(',','.').astype('float64')
+bd_bounded_10000 = bd[(bd["transaction_processing_amount"]>=1000) & (bd["transaction_processing_amount"]<10000)]
 
-
-def generate_table(dataframe, max_rows=10):
-    return html.Table([
-        html.Thead(
-            html.Tr([html.Th(col) for col in dataframe.columns])
-        ),
-        html.Tbody([
-            html.Tr([
-                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-            ]) for i in range(min(len(dataframe), max_rows))
-        ])
-    ])
+fig = px.box(bd_bounded_10000, x="isic_section_name", y="transaction_processing_amount")
 
 layout = html.Div(
     [
@@ -38,6 +31,9 @@ layout = html.Div(
             ],
             style={'background-color':'#F8F6F6','border':'0px'},
         ),
-        generate_table(df)
+         dcc.Graph(
+        id='boxplot-graph',
+        figure=fig
+         )
     ]
 )
