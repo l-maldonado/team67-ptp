@@ -75,7 +75,6 @@ about_layout = html.Div([about_us.layout])
 about_layout = html.Div([about_us.layout])
 
 
-###############################################
 #
 #           APP INTERACTIVITY:
 #
