@@ -16,10 +16,13 @@ layout = html.Div(
     [
         dbc.Alert(
             [
-                html.H1("Recommender System",style={'color':'#F37126'}),
-                html.P("Place to pay analytical platform for the analysis of the transactional behavior of your customers",style={'color':'#8190A5','font-weight': 'bold'}),
+                html.H3("Recommender System", style={"color": "#F37126"}),
+                html.P(
+                    "Recommendation system that gives you the list of products that each of yur clienes are model likely to buy",
+                    style={"color": "#8190A5", "font-weight": "bold"},
+                ),
             ],
-            style={'background-color':'#F8F6F6','border':'0px'},
+            style={"background-color": "#F8F6F6", "border": "0px"},
         ),
     ]
 )
