@@ -71,6 +71,9 @@ recommender_layout = html.Div([recommender_system.layout])
 # About us
 about_layout = html.Div([about_us.layout])
 
+# About us part 2 for testong
+about_layout = html.Div([about_us.layout])
+
 
 ###############################################
 #
