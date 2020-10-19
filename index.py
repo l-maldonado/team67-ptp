@@ -71,9 +71,6 @@ recommender_layout = html.Div([recommender_system.layout])
 # About us
 about_layout = html.Div([about_us.layout])
 
-# Descriptive analytics
-descriptive_analytics_layout = html.Div([about_us.layout])
-
 
 ###############################################
 #
