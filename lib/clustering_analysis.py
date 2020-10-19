@@ -16,10 +16,14 @@ layout = html.Div(
     [
         dbc.Alert(
             [
-                html.H1("Clustering Analysis",style={'color':'#F37126'}),
-                html.P("Place to pay analytical platform for the analysis of the transactional behavior of your customers",style={'color':'#8190A5','font-weight': 'bold'}),
+                html.H3("Clustering Analysis", style={"color": "#F37126"}),
+                html.P(
+                    "You will find an analysis of how your clients relate to"
+                    " each other based on their transaction behavior",
+                    style={"color": "#8190A5", "font-weight": "bold"},
+                ),
             ],
-            style={'background-color':'#F8F6F6','border':'0px'},
+            style={"background-color": "#F8F6F6", "border": "0px"},
         ),
     ]
 )
