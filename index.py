@@ -30,17 +30,49 @@ from app import app
 ###########################################################
 
 # LOAD THE DIFFERENT FILES
-from lib import menu, home, clustering_analysis, descriptive_analytics, recommender_system
+from lib import (
+    menu,
+    home,
+    clustering_analysis,
+    descriptive_analytics,
+    recommender_system,
+    about_us,
+)
 
 # PLACE THE COMPONENTS IN THE LAYOUT
-    
-app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
-    menu.Navbar(),
-    html.Div(id='page-content')
+
+app.layout = html.Div(
+    [
+        dcc.Location(id="url", refresh=False),
+        menu.Navbar(),
+        html.Div(id="page-content"),
+        # home.body,
     ]
-    #className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
+    # className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
 )
+
+###############################################
+#
+#           PAGES INTERACTIVITY:
+#
+###############################################
+
+# Descriptive analytics
+descriptive_layout = html.Div(
+    [descriptive_analytics.layout, descriptive_analytics.grap]
+)
+
+# Clustering Anaysis
+clustering_layout = html.Div([clustering_analysis.layout])
+
+# Recommender System
+recommender_layout = html.Div([recommender_system.layout])
+
+# About us
+about_layout = html.Div([about_us.layout])
+
+# Descriptive analytics
+descriptive_analytics_layout = html.Div([about_us.layout])
 
 
 ###############################################
@@ -48,17 +80,19 @@ app.layout = html.Div([
 #           APP INTERACTIVITY:
 #
 ###############################################
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
-    if pathname == '/recommender_system':
-        return recommender_system.layout
-    elif pathname == '/descriptive_analytics':
-        return descriptive_analytics.layout
-    elif pathname == '/clustering_analysis':
-        return clustering_analysis.layout
+    if pathname == "/recommender_system":
+        return recommender_layout
+    elif pathname == "/descriptive_analytics":
+        return descriptive_layout
+    elif pathname == "/clustering_analysis":
+        return clustering_layout
+    elif pathname == "/about_us":
+        return about_layout
     else:
         return home.layout
 
+
 if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", port="8050", debug=True)
+    app.run_server(host="localhost", port="8050", debug=True)
