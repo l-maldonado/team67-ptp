@@ -30,44 +30,68 @@ from app import app
 ###########################################################
 
 # LOAD THE DIFFERENT FILES
-from lib import menu, home, clustering_analysis, descriptive_analytics, recommender_system
+from lib import (
+    menu,
+    home,
+    clustering_analysis,
+    descriptive_analytics,
+    recommender_system,
+    about_us,
+)
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
-
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
-    
-app.layout = html.Div([
-    dcc.Tabs([
-    dcc.Tab(label='Home', children= home.layout, className="tab"),
-    dcc.Tab(label='Recommender system', children= recommender_system.layout, className="tab"),
-    dcc.Tab(label='Descriptive analytics', children= descriptive_analytics.layout, className="tab"),
-    dcc.Tab(label='Clustering analysis', children= clustering_analysis.layout, className="tab")
-    ], id="app-tabs")
-    #className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
-])
-
-
-@app.callback(
-    dash.dependencies.Output('example-graph1', 'figure'),
-    [dash.dependencies.Input('submit-val', 'n_clicks')])
-def update_output(n_clicks):
-    if n_clicks%2==1:
-        figura=fig
-    return figura
+app.layout = html.Div(
+    [
+        dcc.Location(id="url", refresh=False),
+        menu.Navbar(),
+        html.Div(id="page-content"),
+        # home.body,
+    ]
+    # className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
+)
 
 ###############################################
+#
+#           PAGES INTERACTIVITY:
+#
+###############################################
+
+# Descriptive analytics
+descriptive_layout = html.Div(
+    [descriptive_analytics.layout, descriptive_analytics.grap]
+)
+
+# Clustering Anaysis
+clustering_layout = html.Div([clustering_analysis.layout])
+
+# Recommender System
+recommender_layout = html.Div([recommender_system.layout])
+
+# About us
+about_layout = html.Div([about_us.layout])
+
+# About us part 2 for testong
+about_layout = html.Div([about_us.layout])
+
+
 #
 #           APP INTERACTIVITY:
 #
 ###############################################
-
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+def display_page(pathname):
+    if pathname == "/recommender_system":
+        return recommender_layout
+    elif pathname == "/descriptive_analytics":
+        return descriptive_layout
+    elif pathname == "/clustering_analysis":
+        return clustering_layout
+    elif pathname == "/about_us":
+        return about_layout
+    else:
+        return home.layout
 
 
 if __name__ == "__main__":
-    app.run_server( debug=True)
+    app.run_server(host="localhost", port="8050", debug=True)

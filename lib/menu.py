@@ -23,14 +23,22 @@ from app import app
 # Add the DS4A_Img
 ####################################################################################
 
+<<<<<<< HEAD
 #DS4A_Img = html.Div(
 #    children=[html.Img(src=app.get_asset_url("ds4a-img.svg"), id="ds4a-image",)],
 #)
+=======
+# DS4A_Img = html.Div(
+#    children=[html.Img(src=app.get_asset_url("ds4a-img.svg"), id="ds4a-image",)],
+# )
+DS4A_LOGO = "../static/images/correlation-one.png"
+>>>>>>> 9841020fcdef8153e13c908d099d065074d7defe
 
 #############################################################################
 # Menu Layout
 #############################################################################
 
+<<<<<<< HEAD
 def Navbar():
     navbar = dbc.Navbar(
         [
@@ -57,3 +65,24 @@ def Navbar():
     )
 
     return navbar
+=======
+
+def Navbar():
+    navbar = dbc.NavbarSimple(
+        children=[
+            dbc.NavItem(dbc.NavLink("Recommender System", href="/recommender_system")),
+            dbc.NavItem(
+                dbc.NavLink("Clustering Analysis", href="/clustering_analysis")
+            ),
+            dbc.NavItem(
+                dbc.NavLink("Descriptive Analytics", href="/descriptive_analytics")
+            ),
+            dbc.NavItem(dbc.NavLink("About Us", href="/about_us")),
+        ],
+        brand="Home",
+        brand_href="/home",
+        sticky="top",
+        color="#FEFEFE",
+    )
+    return navbar
+>>>>>>> 9841020fcdef8153e13c908d099d065074d7defe
