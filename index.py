@@ -59,7 +59,7 @@ app.layout = html.Div(
 
 # Descriptive analytics
 descriptive_layout = html.Div(
-    [descriptive_analytics.layout, descriptive_analytics.grap]
+    [descriptive_analytics.layout, descriptive_analytics.card_installment]
 )
 
 # Clustering Anaysis
