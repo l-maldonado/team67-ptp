@@ -9,12 +9,14 @@ import os
 #### LOADING MODULES ###
 import feather
 
-# filepath = "e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/placetopayDB4.ftr"  # or 'my_data.feather'
+# or 'my_data.feather'
+
 
 # data = feather.read_dataframe(filepath)
 
 ###### PREPROCESOR SINGLE VARIABLE ###########
 def preprocess_var(bd, var):
+    file_data = f"C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/lib/data/{var}.csv"
     filepath = bd
     data = feather.read_dataframe(filepath)
     df = data.copy()
@@ -22,11 +24,11 @@ def preprocess_var(bd, var):
     df2 = df2.to_frame()
     if df2[var].dtype is "category":
         df2[var] = df2[var].astype("category").cat.codes
-        filename = f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var}.csv"
+        filename = file_data
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
     else:
-        filename = f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var}.csv"
+        filename = file_data
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
 
@@ -35,37 +37,64 @@ def preprocess_var(bd, var):
 
 ###### PREPROCESOR MULTIPLE VARIABLE ###########
 def preprocess_mul(bd, var1, var2):
-    df = bd.copy()
+    file_data2 = (
+        f"C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/lib/data/{var1}_{var2}.csv"
+    )
+    filepath = bd
+    data = feather.read_dataframe(filepath)
+    df = data.copy()
     df2 = df[[var1, var2]]
     # df2 = df2.to_frame()
     if df2[var1].dtype is "category" and df2[var2].dtype is "category":
         df2[var1] = df2[var1].astype("category").cat.codes
         df2[var2] = df2[var2].astype("category").cat.codes
-        filename = (
-            f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var1}_{var2}.csv"
-        )
+        filename = file_data2
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
     elif df2[var1].dtype is "category" and df2[var2].dtype is not "category":
         df2[var1] = df2[var1].astype("category").cat.codes
-        filename = (
-            f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var1}_{var2}.csv"
-        )
+        filename = file_data2
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
     elif df2[var1].dtype is not "category" and df2[var2].dtype is "category":
         df2[var2] = df2[var2].astype("category").cat.codes
-        filename = (
-            f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var1}_{var2}.csv"
-        )
+        filename = file_data2
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
     else:
-        filename = (
-            f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/data/{var1}_{var2}.csv"
-        )
+        filename = file_data2
         df2.to_csv(filename, index=False)
         print("Succesfully exported to csv")
 
 
 # Example: preprocess_mul(data, "transaction_card_installments", "transaction_payer_id")
+###### PREPROCESOR MULTIPLE VARIABLE ###########
+def preprocess_mf(bd, var1, var2):
+    file_data3 = (
+        f"C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/lib/data/{var1}_{var2}.ftr"
+    )
+    filepath = bd
+    data = feather.read_dataframe(filepath)
+    df = data.copy()
+    df2 = df[[var1, var2]]
+    # df2 = df2.to_frame()
+    if df2[var1].dtype is "category" and df2[var2].dtype is "category":
+        df2[var1] = df2[var1].astype("category").cat.codes
+        df2[var2] = df2[var2].astype("category").cat.codes
+        filename = file_data3
+        df2.to_csv(filename)
+        print("Succesfully exported to feather")
+    elif df2[var1].dtype is "category" and df2[var2].dtype is not "category":
+        df2[var1] = df2[var1].astype("category").cat.codes
+        filename = file_data3
+        df2.to_csv(filename)
+        print("Succesfully exported to feather")
+    elif df2[var1].dtype is not "category" and df2[var2].dtype is "category":
+        df2[var2] = df2[var2].astype("category").cat.codes
+        filename = file_data3
+        df2.to_csv(filename)
+        print("Succesfully exported to feather")
+    else:
+        filename = file_data3
+        df2.to_feather(filename)
+        print("Succesfully exported to feather")
