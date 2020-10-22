@@ -14,7 +14,8 @@ import pandas as pd
 
 # from dataframes import df_ci
 
-from .data.dataframes import df_ci
+# from .data.dataframes import df_ci
+from .data.dataframes_ftr import df_x
 
 # Dash Bootstrap Components
 import dash_bootstrap_components as dbc
@@ -85,7 +86,7 @@ grap = dbc.Container(
     ],
     fluid=True,
 )
-
+"""
 ######### TRANSACTION CARD ID ##################
 fig_df_ci = go.Figure()
 fig_df_ci.add_trace(go.Histogram(x=df_ci["transaction_card_installments"]))
@@ -99,6 +100,40 @@ card_installment = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(html.Div(dcc.Graph(figure=fig_df_ci)), md=4),
+            ],
+            align="center",
+        ),
+    ],
+    fluid=True,
+)
+"""
+######### BLOXPLOT TEST #########
+fig_x = go.Figure()
+fig_x.add_trace(
+    go.Box(
+        y=df_x[
+            df_x["isic_section_name"]
+            == "ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO"
+        ]["logarithm"],
+        quartilemethod="linear",
+        name="ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=df_x[df_x["isic_section_name"] == "ACTIVIDADES FINANCIERAS Y DE SEGUROS"][
+            "logarithm"
+        ],
+        quartilemethod="linear",
+        name="ACTIVIDADES FINANCIERAS Y DE SEGUROS",
+    )
+)
+# fig.add_trace(go.Box(x=bd[bd['isic_section_name']=='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL']['New_log'], quartilemethod="linear", name='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL'))
+boxplot_1 = dbc.Container(
+    [
+        dbc.Row(
+            [
+                dbc.Col(html.Div(dcc.Graph(figure=fig_x)), md=4),
             ],
             align="center",
         ),
