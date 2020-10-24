@@ -10,3 +10,10 @@ df_x = feather.read_dataframe(filepath)
 df_x["logarithm"] = np.log(df_x["transaction_processing_amount"])
 df_x
 print(df_x.info())
+
+np.random.seed(135568109)
+ndata = len(df_x)
+idx = np.random.choice(range(ndata), int(0.8 * ndata), replace=False)
+data = df_x.iloc[idx]
+# print(train.shape)
+data
