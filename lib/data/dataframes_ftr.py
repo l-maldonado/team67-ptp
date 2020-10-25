@@ -11,9 +11,14 @@ df_x["logarithm"] = np.log(df_x["transaction_processing_amount"])
 df_x
 print(df_x.info())
 
+["logarithm"] = np.log(df_x["transaction_processing_amount"])
+df_x
+print(df_x.info())
+
 np.random.seed(135568109)
 ndata = len(df_x)
-idx = np.random.choice(range(ndata), int(0.8 * ndata), replace=False)
-data = df_x.iloc[idx]
-# print(train.shape)
-data
+idx_80 = np.random.choice(range(ndata), int(0.8 * ndata), replace=False)
+idx_20  = np.asarray(list(set(range(ndata)) - set(idx_train)))
+data_80    = df_x.iloc[idx_80] 
+data_20      = df_x.iloc[idx_20] 
+data_20
