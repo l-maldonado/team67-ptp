@@ -2,7 +2,5 @@ import pandas as pd
 import feather
 
 preprocess_mf = __import__("preprocessor").preprocess_mf
-filename = (
-    "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/lib/data/placetopayDB4.ftr"
-)
+filename = "C:/Users/anemi/OneDrive/Escritorio/dataframes/placetopayDB4.ftr"
 preprocess_mf(filename, "isic_section_name", "transaction_processing_amount")

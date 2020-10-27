@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import feather
 
-filepath = "E:/Users/edwar/Desktop/place_to_pay/team67-ptp/lib/data/isic_section_name_transaction_processing_amount.ftr"
+filepath = "C:/Users/anemi/OneDrive/Escritorio/dataframes/isic_section_name_transaction_processing_amount.ftr"
 df_x = feather.read_dataframe(filepath)
 
 # print(df_x.info())
