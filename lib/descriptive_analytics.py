@@ -285,8 +285,8 @@ for cat in cats:
 
 # fig_x.add_trace(go.Box(x=bd[bd['isic_section_name']=='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL']["logarithm"], quartilemethod="linear", name='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL'))
 ######### VIOLINPLOT TEST #########
-fig_x = go.Figure()
-fig_x.add_trace(
+fig_x1 = go.Figure()
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "J-INFORMACIÓN Y COMUNICACIONES"
@@ -295,7 +295,7 @@ fig_x.add_trace(
         name="J-INFORMACIÓN Y COMUNICACIONES",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "K-ACTIVIDADES FINANCIERAS Y DE SEGUROS"
@@ -304,7 +304,7 @@ fig_x.add_trace(
         name="K-ACTIVIDADES FINANCIERAS Y DE SEGUROS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -314,7 +314,7 @@ fig_x.add_trace(
         name="N-ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "H-TRANSPORTE Y ALMACENAMIENTO"
@@ -323,7 +323,7 @@ fig_x.add_trace(
         name="H-TRANSPORTE Y ALMACENAMIENTO",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -333,14 +333,14 @@ fig_x.add_trace(
         name="R-ACTIVIDADES ARTÍSTICAS, DE ENTRETENIMIENTO Y RECREACIÓN",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][data_20["isic_section_name"] == "P-EDUCACIÓN"],
         quartilemethod="linear",
         name="P-EDUCACIÓN",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -350,7 +350,7 @@ fig_x.add_trace(
         name="Q-ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -360,7 +360,7 @@ fig_x.add_trace(
         name="O-ADMINISTRACIÓN PÚBLICA Y DEFENSA; PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "S-OTRAS ACTIVIDADES DE SERVICIOS"
@@ -369,7 +369,7 @@ fig_x.add_trace(
         name="S-OTRAS ACTIVIDADES DE SERVICIOS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -379,7 +379,7 @@ fig_x.add_trace(
         name="G-COMERCIO AL POR MAYOR Y AL POR MENOR; REPARACIÓN DE VEHÍCULOS AUTOMOTORES Y MOTOCICLETAS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "L-ACTIVIDADES INMOBILIARIAS"
@@ -388,7 +388,7 @@ fig_x.add_trace(
         name="L-ACTIVIDADES INMOBILIARIAS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -398,7 +398,7 @@ fig_x.add_trace(
         name="M-ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "C-INDUSTRIAS MANUFACTURERAS"
@@ -407,7 +407,7 @@ fig_x.add_trace(
         name="C-INDUSTRIAS MANUFACTURERAS",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"] == "I-ALOJAMIENTO Y SERVICIOS DE COMIDA"
@@ -416,7 +416,7 @@ fig_x.add_trace(
         name="I-ALOJAMIENTO Y SERVICIOS DE COMIDA",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -426,7 +426,7 @@ fig_x.add_trace(
         name="D-SUMINISTRO DE ELECTRICIDAD, GAS, VAPOR Y AIRE ACONDICIONADO",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][
             data_20["isic_section_name"]
@@ -436,7 +436,7 @@ fig_x.add_trace(
         name="A-AGRICULTURA, GANADERÍA, CAZA, SILVICULTURA Y PESCA",
     )
 )
-fig_x.add_trace(
+fig_x1.add_trace(
     go.Violin(
         y=data_20["logarithm"][data_20["isic_section_name"] == "F-CONSTRUCCIÓN"],
         quartilemethod="linear",
@@ -445,7 +445,7 @@ fig_x.add_trace(
 )
 
 """ Violinplot con for 
-fig_x= go.Figure()
+fig_x1= go.Figure()
 
 cats = data_20["isic_section_name"]
 
@@ -459,8 +459,21 @@ for cat in cats:
         )
     )
 """
+######### VIOLINPLOT TEST #########
 
 boxplot_1 = dbc.Container(
+    [
+        dbc.Row(
+            [
+                dbc.Col(html.Div(dcc.Graph(figure=fig_x)), md=4),
+            ],
+            align="center",
+        ),
+    ],
+    fluid=True,
+)
+
+violinplot_1 = dbc.Container(
     [
         dbc.Row(
             [
