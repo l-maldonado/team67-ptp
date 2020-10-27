@@ -15,7 +15,7 @@ import pandas as pd
 # from dataframes import df_ci
 
 # from .data.dataframes import df_ci
-from .data.dataframes_ftr import df_x
+from .data.dataframes_ftr import data_20
 
 # Dash Bootstrap Components
 import dash_bootstrap_components as dbc
@@ -111,24 +111,179 @@ card_installment = dbc.Container(
 fig_x = go.Figure()
 fig_x.add_trace(
     go.Box(
-        y=df_x[
-            df_x["isic_section_name"]
-            == "ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO"
-        ]["logarithm"],
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "J-INFORMACIÓN Y COMUNICACIONES"
+        ],
         quartilemethod="linear",
-        name="ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO",
+        name="J-INFORMACIÓN Y COMUNICACIONES",
     )
 )
 fig_x.add_trace(
     go.Box(
-        y=df_x[df_x["isic_section_name"] == "ACTIVIDADES FINANCIERAS Y DE SEGUROS"][
-            "logarithm"
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "K-ACTIVIDADES FINANCIERAS Y DE SEGUROS"
         ],
         quartilemethod="linear",
-        name="ACTIVIDADES FINANCIERAS Y DE SEGUROS",
+        name="K-ACTIVIDADES FINANCIERAS Y DE SEGUROS",
     )
 )
-# fig.add_trace(go.Box(x=bd[bd['isic_section_name']=='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL']['New_log'], quartilemethod="linear", name='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL'))
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "N-ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO"
+        ],
+        quartilemethod="linear",
+        name="N-ACTIVIDADES DE SERVICIOS ADMINISTRATIVOS Y DE APOYO",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "H-TRANSPORTE Y ALMACENAMIENTO"
+        ],
+        quartilemethod="linear",
+        name="H-TRANSPORTE Y ALMACENAMIENTO",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "R-ACTIVIDADES ARTÍSTICAS, DE ENTRETENIMIENTO Y RECREACIÓN"
+        ],
+        quartilemethod="linear",
+        name="R-ACTIVIDADES ARTÍSTICAS, DE ENTRETENIMIENTO Y RECREACIÓN",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][data_20["isic_section_name"] == "P-EDUCACIÓN"],
+        quartilemethod="linear",
+        name="P-EDUCACIÓN",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "Q-ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL"
+        ],
+        quartilemethod="linear",
+        name="Q-ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "O-ADMINISTRACIÓN PÚBLICA Y DEFENSA; PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA"
+        ],
+        quartilemethod="linear",
+        name="O-ADMINISTRACIÓN PÚBLICA Y DEFENSA; PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "S-OTRAS ACTIVIDADES DE SERVICIOS"
+        ],
+        quartilemethod="linear",
+        name="S-OTRAS ACTIVIDADES DE SERVICIOS",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "G-COMERCIO AL POR MAYOR Y AL POR MENOR; REPARACIÓN DE VEHÍCULOS AUTOMOTORES Y MOTOCICLETAS"
+        ],
+        quartilemethod="linear",
+        name="G-COMERCIO AL POR MAYOR Y AL POR MENOR; REPARACIÓN DE VEHÍCULOS AUTOMOTORES Y MOTOCICLETAS",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "L-ACTIVIDADES INMOBILIARIAS"
+        ],
+        quartilemethod="linear",
+        name="L-ACTIVIDADES INMOBILIARIAS",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "M-ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS"
+        ],
+        quartilemethod="linear",
+        name="M-ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "C-INDUSTRIAS MANUFACTURERAS"
+        ],
+        quartilemethod="linear",
+        name="C-INDUSTRIAS MANUFACTURERAS",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"] == "I-ALOJAMIENTO Y SERVICIOS DE COMIDA"
+        ],
+        quartilemethod="linear",
+        name="I-ALOJAMIENTO Y SERVICIOS DE COMIDA",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "D-SUMINISTRO DE ELECTRICIDAD, GAS, VAPOR Y AIRE ACONDICIONADO"
+        ],
+        quartilemethod="linear",
+        name="D-SUMINISTRO DE ELECTRICIDAD, GAS, VAPOR Y AIRE ACONDICIONADO",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][
+            data_20["isic_section_name"]
+            == "A-AGRICULTURA, GANADERÍA, CAZA, SILVICULTURA Y PESCA"
+        ],
+        quartilemethod="linear",
+        name="A-AGRICULTURA, GANADERÍA, CAZA, SILVICULTURA Y PESCA",
+    )
+)
+fig_x.add_trace(
+    go.Box(
+        y=data_20["logarithm"][data_20["isic_section_name"] == "F-CONSTRUCCIÓN"],
+        quartilemethod="linear",
+        name="F-CONSTRUCCIÓN",
+    )
+)
+
+""" Boxplot con for 
+fig_x= go.Figure()
+
+cats = data_20["isic_section_name"]
+
+for cat in cats:
+    fig.add_trace(
+        go.Box(
+            y=data_20["logarithm"][data_20['isic_section_name'] 
+            == cat],
+            quartilemethod="linear", 
+            name=cat
+        )
+    )
+"""
+
+# fig_x.add_trace(go.Box(x=bd[bd['isic_section_name']=='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL']["logarithm"], quartilemethod="linear", name='ACTIVIDADES DE ATENCIÓN DE LA SALUD HUMANA Y DE ASISTENCIA SOCIAL'))
 boxplot_1 = dbc.Container(
     [
         dbc.Row(
