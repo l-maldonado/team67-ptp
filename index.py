@@ -70,16 +70,13 @@ app.layout = html.Div(
 
 # Descriptive analytics
 descriptive_layout = html.Div(
-<<<<<<< HEAD
-    [descriptive_analytics.layout, descriptive_analytics.descriptive_tab]
-=======
     [
-        descriptive_analytics.layout  # ,
+        descriptive_analytics.layout,
+        descriptive_analytics.descriptive_tab
         # descriptive_analytics.boxplot_1,
         # descriptive_analytics.violinplot_1,
         # descriptive_analytics.heatmap_1,
     ]
->>>>>>> 966e89db3fc5623bbfd8167ea9afbbd381f06f0b
 )
 
 # Clustering Anaysis
