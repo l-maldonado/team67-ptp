@@ -20,7 +20,7 @@ import pandas as pd
 import json
 
 # Recall app
-from app import app
+from app import app, server
 
 # external_stylesheets = [
 # "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
