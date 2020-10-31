@@ -37,7 +37,7 @@ from app import app
 # Menu Layout
 #############################################################################
 PTP_LOGO = app.get_asset_url("placetopay.png")
-PTP_LOGO1 = app.get_asset_url("correlation_one.png")
+PTP_LOGO1 = app.get_asset_url("correlation_one1.png")
 
 SIDEBAR_STYLE = {
     "position": "fixed",
