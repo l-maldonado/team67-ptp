@@ -26,16 +26,18 @@ from app import app
 # DS4A_Img = html.Div(
 #    children=[html.Img(src=app.get_asset_url("ds4a-img.svg"), id="ds4a-image",)],
 # )
-DS4A_LOGO = "../static/images/correlation-one.png"
 
 #############################################################################
 # Menu Layout
 #############################################################################
 
+PTP_LOGO = "../static/images/placetopay.png"
+
 
 def Navbar():
     navbar = dbc.NavbarSimple(
         children=[
+            dbc.Col(html.Img(src=PTP_LOGO, height="30px"), width="auto"),
             dbc.NavItem(dbc.NavLink("Recommender System", href="/recommender_system")),
             dbc.NavItem(
                 dbc.NavLink("Clustering Analysis", href="/clustering_analysis")
@@ -45,8 +47,8 @@ def Navbar():
             ),
             dbc.NavItem(dbc.NavLink("About Us", href="/about_us")),
         ],
-        brand="Home",
-        brand_href="/home",
+        # brand="Home",
+        # brand_href="/home",
         sticky="top",
         color="#FEFEFE",
     )
