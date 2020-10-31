@@ -24,12 +24,36 @@ from app import app
 ####################################################################################
 
 # DS4A_Img = html.Div(
-#    children=[html.Img(src=app.get_asset_url("ds4a-img.svg"), id="ds4a-image",)],
+#    children=[
+#        html.Img(
+#            src=app.get_asset_url("placetopay.png"),
+#            id="logo",
+#        )
+#    ],
 # )
 
 #############################################################################
 # Menu Layout
 #############################################################################
+PTP_LOGO = app.get_asset_url("placetopay.png")
+PTP_LOGO1 = app.get_asset_url("correlation_one.png")
+
+SIDEBAR_STYLE = {
+    "position": "fixed",
+    "top": 12,
+    "left": 0,
+    "width": "0rem",
+    "background-color": "#ffffff",
+}
+SIDEBAR_STYLE1 = {
+    "position": "fixed",
+    "top": 10,
+    "left": 165,
+    "width": "0rem",
+    "background-color": "#ffffff",
+}
+#   "bottom": 0,
+# 20
 
 PTP_LOGO = "../static/images/placetopay.png"
 
@@ -37,8 +61,27 @@ PTP_LOGO = "../static/images/placetopay.png"
 def Navbar():
     navbar = dbc.NavbarSimple(
         children=[
-            dbc.Col(html.Img(src=PTP_LOGO, height="30px"), width="auto"),
-            dbc.NavItem(dbc.NavLink("Recommender System", href="/recommender_system")),
+            html.A(
+                dbc.Row(
+                    [
+                        dbc.Col(
+                            html.Img(src=PTP_LOGO, height="35px"),
+                            style=SIDEBAR_STYLE,
+                        ),
+                        dbc.Col(
+                            html.Img(src=PTP_LOGO1, height="20px"),
+                            style=SIDEBAR_STYLE1,
+                        ),
+                    ],
+                    justify="start",
+                    no_gutters=False,
+                    # href="/home",
+                ),
+                href="/home",
+            ),
+            dbc.NavItem(
+                dbc.NavLink("Recommender System", href="/recommender_system"),
+            ),
             dbc.NavItem(
                 dbc.NavLink("Clustering Analysis", href="/clustering_analysis")
             ),
