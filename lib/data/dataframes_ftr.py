@@ -3,8 +3,8 @@ import numpy as np
 import feather
 
 filepath = "E:/Users/edwar/Desktop/place_to_pay/team67-ptp/lib/data/db/isic_section_name_transaction_processing_amount.ftr"
-
-
+df_x = feather.read_dataframe(filepath)
+"""
 df_x["logarithm"] = np.log(df_x["transaction_processing_amount"])
 df_x
 
@@ -44,3 +44,4 @@ data_20_1 = df_x1.iloc[idx_20_1]
 data_20_1
 
 df_x1
+"""
