@@ -18,6 +18,7 @@ from .data.dataframes import df_t
 
 import dash_bootstrap_components as dbc
 
+app = __import__("app").app
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 layout = html.Div(
@@ -42,7 +43,18 @@ descriptive_1 = "https://app.powerbi.com/view?r=eyJrIjoiOGQ3NmRjOGEtZDExNi00OGRi
 tab1_content = dbc.Card(
     dbc.CardBody(
         [
-            html.P("DESCRIPTION", className="card-text"),
+            html.Div(
+                [
+                    dbc.Button("More Info", id="alert-toggle-fade", className="mr-1"),
+                    html.Hr(),
+                    dbc.Alert(
+                        "Select the merchant_id and the division name to see the specific information about them",
+                        id="alert-fade",
+                        dismissable=True,
+                        is_open=True,
+                    ),
+                ]
+            ),
             dbc.Container(
                 [
                     dbc.Row(
@@ -69,7 +81,21 @@ tab1_content = dbc.Card(
 tab2_content = dbc.Card(
     dbc.CardBody(
         [
-            html.P("DESCRIPTION", className="card-text"),
+            html.Div(
+                [
+                    dbc.Button(
+                        "More Info", id="alert-toggle-no-fade", className="mr-1"
+                    ),
+                    html.Hr(),
+                    dbc.Alert(
+                        "Select the merchant_id and the division name to see purchase behavior in geospatial context",
+                        id="alert-no-fade",
+                        dismissable=True,
+                        fade=False,
+                        duration=4000,
+                    ),
+                ]
+            ),
             dbc.Container(
                 [
                     dbc.Row(
@@ -99,3 +125,36 @@ descriptive_tab = dbc.Tabs(
         dbc.Tab(tab2_content, label="Geospatial information by merchant and industry"),
     ]
 )
+
+
+@app.callback(
+    Output("alert-auto", "is_open"),
+    [Input("alert-toggle-auto", "n_clicks")],
+    [State("alert-auto", "is_open")],
+)
+def toggle_alert(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+
+@app.callback(
+    Output("alert-fade", "is_open"),
+    [Input("alert-toggle-fade", "n_clicks")],
+    [State("alert-fade", "is_open")],
+)
+def toggle_alert(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+
+@app.callback(
+    Output("alert-no-fade", "is_open"),
+    [Input("alert-toggle-no-fade", "n_clicks")],
+    [State("alert-no-fade", "is_open")],
+)
+def toggle_alert_no_fade(n, is_open):
+    if n:
+        return not is_open
+    return is_open
