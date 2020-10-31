@@ -1,4 +1,5 @@
 # Basics Requirements
+app = __import__("app").app
 import pathlib
 import os
 import dash
@@ -9,26 +10,20 @@ import dash_html_components as html
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+import dash_bootstrap_components as dbc
 
-<<<<<<< HEAD
-from .data.dataframes import df_t
-=======
+
+# from .data.dataframes import df_t
+# from .data.dataframes_ftr import data_20
+# from .data.dataframes_ftr import data_20_1
+
 # df_ci = __import__("./data/dataframes").df_ci
-
 # from dataframes import df_ci
-
 # from .data.dataframes import df_ci
-from .data.dataframes_ftr import data_20
-from .data.dataframes_ftr import data_20_1
->>>>>>> 966e89db3fc5623bbfd8167ea9afbbd381f06f0b
-
 # from .data.postgresql.process_db import test
 # from .data.dataframes_ftr import df_t
 # Dash Bootstrap Components
 
-import dash_bootstrap_components as dbc
-
-app = __import__("app").app
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 layout = html.Div(
@@ -135,18 +130,6 @@ descriptive_tab = dbc.Tabs(
         dbc.Tab(tab2_content, label="Geospatial information by merchant and industry"),
     ]
 )
-<<<<<<< HEAD
-
-
-@app.callback(
-    Output("alert-auto", "is_open"),
-    [Input("alert-toggle-auto", "n_clicks")],
-    [State("alert-auto", "is_open")],
-)
-def toggle_alert(n, is_open):
-    if n:
-        return not is_open
-    return is_open
 
 
 @app.callback(
@@ -169,10 +152,11 @@ def toggle_alert_no_fade(n, is_open):
     if n:
         return not is_open
     return is_open
-=======
+
+
 """
 ######### BLOXPLOT TEST #########
-"""
+
 fig_x = go.Figure()
 fig_x.add_trace(
     go.Box(
@@ -636,4 +620,3 @@ heatmap_1 = dbc.Container(
     fluid=True,
 )
 """
->>>>>>> 966e89db3fc5623bbfd8167ea9afbbd381f06f0b
