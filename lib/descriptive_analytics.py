@@ -109,6 +109,7 @@ card_installment = dbc.Container(
 )
 """
 ######### BLOXPLOT TEST #########
+"""
 fig_x = go.Figure()
 fig_x.add_trace(
     go.Box(
@@ -267,7 +268,7 @@ fig_x.add_trace(
         name="F-CONSTRUCCIÓN",
     )
 )
-
+"""
 """ Boxplot con for 
 fig_x= go.Figure()
 
@@ -282,6 +283,7 @@ for cat in cats:
             name=cat
         )
     )
+"""
 """
 fig_x.update_layout(
     title="Diagrama de cajas",
@@ -484,7 +486,7 @@ fig_x1.add_trace(
         meanline_visible=True,
     )
 )
-
+"""
 """ Violinplot con for 
 fig_x1= go.Figure()
 
@@ -500,6 +502,7 @@ for cat in cats:
             meanline_visible=True,
         )
     )
+"""
 """
 fig_x1.update_layout(
     title="Diagrama de cajas",
@@ -569,3 +572,4 @@ heatmap_1 = dbc.Container(
     ],
     fluid=True,
 )
+"""

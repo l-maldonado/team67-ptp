@@ -22,6 +22,12 @@ import json
 # Recall app
 from app import app
 
+# external_stylesheets = [
+# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
+# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/ds4a_styles.css",
+# ]
+# app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
 
 ###########################################################
 #
@@ -39,8 +45,13 @@ from lib import (
     about_us,
 )
 
-# PLACE THE COMPONENTS IN THE LAYOUT
+# from flask_caching import Cache
 
+# PLACE THE COMPONENTS IN THE LAYOUT
+# cache = Cache(app.server, config={"CACHE_TYPE": "filesystem", "CACHE_DIR": "cache"})
+# app.config.supress_callback_exceptions = True
+
+# timeout = 20
 app.layout = html.Div(
     [
         dcc.Location(id="url", refresh=False),
@@ -60,10 +71,10 @@ app.layout = html.Div(
 # Descriptive analytics
 descriptive_layout = html.Div(
     [
-        descriptive_analytics.layout,
-        descriptive_analytics.boxplot_1,
-        descriptive_analytics.violinplot_1,
-        descriptive_analytics.heatmap_1,
+        descriptive_analytics.layout  # ,
+        # descriptive_analytics.boxplot_1,
+        # descriptive_analytics.violinplot_1,
+        # descriptive_analytics.heatmap_1,
     ]
 )
 
@@ -85,6 +96,7 @@ about_layout = html.Div([about_us.layout])
 #
 ###############################################
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+# @cache.memoize(timeout=timeout)  # in seconds
 def display_page(pathname):
     if pathname == "/recommender_system":
         return recommender_layout

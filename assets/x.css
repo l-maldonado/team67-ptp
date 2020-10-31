@@ -1,16 +1,4 @@
-#app-tabs {
-    top: 0;
-    right: 1;
-    bottom: 0;
-    padding: 2rem 1rem;
-    background-color: #D7BDE2; 
-}
-
-.tab {
-    font-family: 'Open Sans Semi Bold', sans-serif;
-    top: 0;
-    right: 1;
-    bottom: 0;
-    padding: 2rem 1rem;
-    background-color: #F4D03F ; 
-}
+#logo {
+    height:"30px";
+    float:left;
+  }
