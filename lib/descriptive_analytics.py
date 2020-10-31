@@ -42,7 +42,7 @@ layout = html.Div(
     ]
 )
 
-descriptive_map = "https://app.powerbi.com/view?r=eyJrIjoiMmI1MzkwNmEtZThkNi00ZTk3LThjZWYtYjgwOGI0NDQ5ZmVjIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9"
+descriptive_map = "https://app.powerbi.com/view?r=eyJrIjoiMmI1MzkwNmEtZThkNi00ZTk3LThjZWYtYjgwOGI0NDQ5ZmVjIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9&pageName=ReportSection8e92f1ee166027c23cfa"
 descriptive_1 = "https://app.powerbi.com/view?r=eyJrIjoiOGQ3NmRjOGEtZDExNi00OGRiLWJhNzQtNzE1NzAzZDRlMzg0IiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9"
 ######## TABS #########
 tab1_content = dbc.Card(
