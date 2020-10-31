@@ -118,3 +118,36 @@ def preprocess_mf(bd, var1, var2):
         filename = filepath_mvf
         df2.to_feather(filename)
         print("Succesfully exported to feather")
+
+
+
+def preprocess_mf3(bd, var1, var2, var3):
+    filepath_mvf = (
+        f"e:/Users/edwar/Desktop/place_to_pay/team67-ptp/lib/data/db/{var1}_{var2}_{var3}.ftr"
+    )
+    filepath = bd
+    data = feather.read_dataframe(filepath)
+    df = data.copy()
+    df2 = df[[var1, var2, var3]]
+    # df2 = df2.to_frame()
+    if df2[var1].dtype is "category" and df2[var2].dtype is "category" and df2[var3].dtype is "category":
+        df2[var1] = df2[var1].astype("category").cat.codes
+        df2[var2] = df2[var2].astype("category").cat.codes
+        df2[var3] = df2[var3].astype("category").cat.codes
+        filename = filepath_mvf
+        df2.to_csv(filename)
+        print("Succesfully exported to feather")
+    elif df2[var1].dtype is "category" and df2[var2].dtype is not "category" and df2[var3].dtype is not "category":
+        df2[var1] = df2[var1].astype("category").cat.codes
+        filename = filepath_mvf
+        df2.to_csv(filename)
+        print("Succesfully exported to feather")
+    elif df2[var1].dtype is not "category" and df2[var2].dtype is "category", and df2[var3].dtype is "category":
+        df2[var2] = df2[var2].astype("category").cat.codes
+        filename = filepath_mvf
+        df2.to_feather(filename)
+        print("Succesfully exported to feather")
+    else:
+        filename = filepath_mvf
+        df2.to_feather(filename)
+        print("Succesfully exported to feather")
