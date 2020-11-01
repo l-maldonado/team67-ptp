@@ -42,7 +42,7 @@ layout = html.Div(
             [
                 html.H3("About Us", style={"color": "#F37126"}),
                 html.P(
-                    "About Us content",
+                    "Meet the team",
                     style={"color": "#8190A5", "font-weight": "bold"},
                 ),
             ],
