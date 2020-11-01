@@ -25,7 +25,6 @@ from app import app
 PTP_LOGO = "../static/images/placetopay.png"
 PTP_LOGO1 = "../static/images/correlation_one1.png"
 
-
 SIDEBAR_STYLE = {
     "position": "fixed",
     "top": 12,
