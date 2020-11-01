@@ -67,7 +67,9 @@ layout = html.Div(
                             dbc.Card(
                                 [
                                     dbc.CardImg(
-                                        src="/static/images/clustering.png", top=True
+                                        src="/static/images/clus_3.png",
+                                        top=True,
+                                        style={"height": "13.98rem"},
                                     ),
                                     dbc.CardBody(
                                         [
