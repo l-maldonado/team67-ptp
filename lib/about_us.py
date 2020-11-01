@@ -58,7 +58,7 @@ layout = html.Div(
                         dbc.Col(
                             [
                                 html.Img(
-                                    src=app.get_asset_url("LuisM.jpg"),
+                                    src=app.get_asset_url("luisM.jpg"),
                                     height="250px",
                                     style=dalvarez,
                                 ),
@@ -197,7 +197,7 @@ layout = html.Div(
                         dbc.Col(
                             [
                                 html.Img(
-                                    src=app.get_asset_url("ximena.jpg"),
+                                    src=app.get_asset_url("Ximena.jpg"),
                                     height="250px",
                                     style=SIDEBAR,
                                 ),
