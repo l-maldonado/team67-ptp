@@ -128,7 +128,7 @@ layout = html.Div(
                                     },
                                 ),
                                 html.P(
-                                    "Industrial engineering",
+                                    "Industrial engineer",
                                     style={
                                         "color": "#8190A5",
                                         "margin-top": "0px",
@@ -154,7 +154,7 @@ layout = html.Div(
                                     },
                                 ),
                                 html.P(
-                                    "Finances and international relations",
+                                    "Professional in Finance and International Relations",
                                     style={
                                         "color": "#8190A5",
                                         "margin-top": "0px",
@@ -184,7 +184,7 @@ layout = html.Div(
                                     },
                                 ),
                                 html.P(
-                                    "Statistic",
+                                    "Statistician",
                                     style={
                                         "color": "#8190A5",
                                         "margin-top": "0px",
@@ -210,7 +210,7 @@ layout = html.Div(
                                     },
                                 ),
                                 html.P(
-                                    "Statistics",
+                                    "Statistician",
                                     style={
                                         "color": "#8190A5",
                                         "margin-top": "0px",
