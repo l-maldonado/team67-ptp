@@ -25,6 +25,14 @@ from app import app
 PTP_LOGO = "../static/images/placetopay.png"
 PTP_LOGO1 = "../static/images/correlation_one1.png"
 
+<<<<<<< HEAD
+=======
+#############################################################################
+# Menu Layout
+#############################################################################
+PTP_LOGO = app.get_asset_url("placetopay.png")
+PTP_LOGO1 = app.get_asset_url("correlation_one1.png")
+>>>>>>> 8eaa4a9bfb679b53085fcc7cabe5f4faf71330d4
 
 SIDEBAR_STYLE = {
     "position": "fixed",
