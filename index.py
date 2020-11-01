@@ -20,7 +20,7 @@ import pandas as pd
 import json
 
 # Recall app
-from app import app
+from app import app, server
 
 # external_stylesheets = [
 # "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
@@ -112,4 +112,4 @@ def display_page(pathname):
 
 
 if __name__ == "__main__":
-    app.run_server(host="localhost", port="8051", debug=True)
+    app.run_server(debug=True)
