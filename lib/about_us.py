@@ -141,7 +141,7 @@ layout = html.Div(
                         dbc.Col(
                             [
                                 html.Img(
-                                    src=app.get_asset_url("daniel.png"),
+                                    src=app.get_asset_url("daniel.jpg"),
                                     height="250px",
                                     style=SIDEBAR,
                                 ),
