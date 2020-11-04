@@ -16,7 +16,7 @@ layout = html.Div(
     [
         dbc.Alert(
             [
-                html.H3("Transactional Analytics Platform", style={"color": "#F37126"}),
+                html.H3("Transactional Analytics Platform", style={"color": "#F36E21"}),
                 html.P(
                     "Place to pay analytical platform for the analysis of the transactional behavior of your customers",
                     style={"color": "#8190A5", "font-weight": "bold"},
@@ -67,7 +67,9 @@ layout = html.Div(
                             dbc.Card(
                                 [
                                     dbc.CardImg(
-                                        src="/static/images/clustering.png", top=True
+                                        src="/static/images/clus_3.png",
+                                        top=True,
+                                        style={"height": "13.98rem"},
                                     ),
                                     dbc.CardBody(
                                         [

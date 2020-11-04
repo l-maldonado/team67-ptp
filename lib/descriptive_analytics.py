@@ -1,4 +1,5 @@
 # Basics Requirements
+app = __import__("app").app
 import pathlib
 import os
 import dash
@@ -9,21 +10,22 @@ import dash_html_components as html
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-
-# df_ci = __import__("./data/dataframes").df_ci
-
-# from dataframes import df_ci
-
-# from .data.dataframes import df_ci
-from .data.dataframes_ftr import data_20
-from .data.dataframes_ftr import data_20_1
-
-# Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 
 
-# PLACE THE COMPONENTS IN THE LAYOUT
+# from .data.dataframes import df_t
+# from .data.dataframes_ftr import data_20
+# from .data.dataframes_ftr import data_20_1
 
+# df_ci = __import__("./data/dataframes").df_ci
+# from dataframes import df_ci
+# from .data.dataframes import df_ci
+# from .data.postgresql.process_db import test
+# from .data.dataframes_ftr import df_t
+# Dash Bootstrap Components
+
+
+# PLACE THE COMPONENTS IN THE LAYOUT
 layout = html.Div(
     [
         dbc.Alert(
@@ -40,76 +42,121 @@ layout = html.Div(
     ]
 )
 
-df = px.data.iris()  # iris is a pandas DataFrame
-fig = px.scatter(df, x="sepal_width", y="sepal_length")
-
-grap = dbc.Container(
-    [
-        html.H1("Iris k-means clustering"),
-        html.Hr(),
-        dbc.Row(
-            [
-                dbc.Col(html.Div(dcc.Graph(figure=fig)), md=6),
-                dbc.Col(
-                    html.Div(
-                        dcc.Graph(
-                            id="example-graph",
-                            figure={
-                                "data": [
-                                    {
-                                        "x": [1, 2, 3],
-                                        "y": [4, 1, 2],
-                                        "type": "bar",
-                                        "name": "SF",
-                                    },
-                                    {
-                                        "x": [1, 2, 3],
-                                        "y": [2, 4, 5],
-                                        "type": "bar",
-                                        "name": u"Montréal",
-                                    },
-                                    {
-                                        "x": [1, 2, 3],
-                                        "y": [1, 3, 6],
-                                        "type": "bar",
-                                        "name": u"Colombia",
-                                    },
-                                ],
-                                "layout": {"title": "Test Histogram"},
-                            },
-                        )
+descriptive_map = "https://app.powerbi.com/view?r=eyJrIjoiMmI1MzkwNmEtZThkNi00ZTk3LThjZWYtYjgwOGI0NDQ5ZmVjIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9&pageName=ReportSection8e92f1ee166027c23cfa"
+descriptive_1 = "https://app.powerbi.com/view?r=eyJrIjoiMTAzMDk0ZmMtMjk1NC00ZjE3LThjZWQtYjUwMjE0YTE4MWUzIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9"
+######## TABS #########
+tab1_content = dbc.Card(
+    dbc.CardBody(
+        [
+            html.Div(
+                [
+                    dbc.Button("More Info", id="alert-toggle-fade", className="mr-1"),
+                    html.Hr(),
+                    dbc.Alert(
+                        "Select the merchant_id and the division name to see the specific information about them",
+                        id="alert-fade",
+                        dismissable=True,
+                        is_open=True,
                     ),
-                    md=6,
-                ),
-            ],
-            align="center",
-        ),
-    ],
-    fluid=True,
+                ]
+            ),
+            dbc.Container(
+                [
+                    dbc.Row(
+                        [
+                            dbc.Col(
+                                html.Div(
+                                    html.Iframe(
+                                        src=descriptive_1,
+                                        width="110%",
+                                        height="780px",
+                                    )
+                                )
+                            )
+                        ],
+                        align="start",
+                    ),
+                ],
+            ),
+        ],
+    ),
+    className="mt-3",
 )
-"""
-######### TRANSACTION CARD ID ##################
-fig_df_ci = go.Figure()
-fig_df_ci.add_trace(go.Histogram(x=df_ci["transaction_card_installments"]))
-fig_df_ci.update_layout(
-    title_text="Transactions vs card installments",  # title of plot
-    xaxis_title_text="Number of card Installments",  # xaxis label
-    yaxis_title_text="Amount transactions",  # yaxis label
+
+tab2_content = dbc.Card(
+    dbc.CardBody(
+        [
+            html.Div(
+                [
+                    dbc.Button(
+                        "More Info", id="alert-toggle-no-fade", className="mr-1"
+                    ),
+                    html.Hr(),
+                    dbc.Alert(
+                        "Select the merchant_id and the division name to see purchase behavior in geospatial context",
+                        id="alert-no-fade",
+                        dismissable=True,
+                        fade=False,
+                        duration=4000,
+                    ),
+                ]
+            ),
+            dbc.Container(
+                [
+                    dbc.Row(
+                        [
+                            dbc.Col(
+                                html.Div(
+                                    html.Iframe(
+                                        src=descriptive_map,
+                                        width="110%",
+                                        height="780px",
+                                    )
+                                )
+                            )
+                        ],
+                        align="start",
+                    ),
+                ],
+            ),
+        ]
+    ),
+    className="mt-3",
 )
-card_installment = dbc.Container(
+
+descriptive_tab = dbc.Tabs(
     [
-        dbc.Row(
-            [
-                dbc.Col(html.Div(dcc.Graph(figure=fig_df_ci)), md=4),
-            ],
-            align="center",
-        ),
-    ],
-    fluid=True,
+        dbc.Tab(tab1_content, label="Transactions and Merchants information"),
+        dbc.Tab(tab2_content, label="Geospatial information by merchant and industry"),
+    ]
 )
+
+
+@app.callback(
+    Output("alert-fade", "is_open"),
+    [Input("alert-toggle-fade", "n_clicks")],
+    [State("alert-fade", "is_open")],
+)
+def toggle_alert(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+
+@app.callback(
+    Output("alert-no-fade", "is_open"),
+    [Input("alert-toggle-no-fade", "n_clicks")],
+    [State("alert-no-fade", "is_open")],
+)
+def toggle_alert_no_fade(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+
 """
 ######### BLOXPLOT TEST #########
-"""
+
 fig_x = go.Figure()
 fig_x.add_trace(
     go.Box(

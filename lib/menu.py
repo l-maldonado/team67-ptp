@@ -19,25 +19,11 @@ from datetime import datetime as dt
 from app import app
 
 
-####################################################################################
-# Add the DS4A_Img
-####################################################################################
+# PTP_LOGO = app.get_asset_url("placetopay.png")
+# PTP_LOGO1 = app.get_asset_url("correlation_one1.png")
 
-# DS4A_Img = html.Div(
-#    children=[
-#        html.Img(
-#            src=app.get_asset_url("placetopay.png"),
-#            id="logo",
-#        )
-#    ],
-# )
-# DS4A_LOGO = "../static/images/correlation-one.png"
-
-#############################################################################
-# Menu Layout
-#############################################################################
-PTP_LOGO = app.get_asset_url("placetopay.png")
-PTP_LOGO1 = app.get_asset_url("correlation_one1.png")
+PTP_LOGO = "../static/images/placetopay.png"
+PTP_LOGO1 = "../static/images/correlation_one1.png"
 
 SIDEBAR_STYLE = {
     "position": "fixed",
@@ -56,7 +42,7 @@ SIDEBAR_STYLE1 = {
 #   "bottom": 0,
 # 20
 
-
+# PTP_LOGO = "../static/images/placetopay.png"
 def Navbar():
     navbar = dbc.NavbarSimple(
         children=[

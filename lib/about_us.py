@@ -42,7 +42,7 @@ layout = html.Div(
             [
                 html.H3("About Us", style={"color": "#F37126"}),
                 html.P(
-                    "About Us content",
+                    "Meet the team",
                     style={"color": "#8190A5", "font-weight": "bold"},
                 ),
             ],
@@ -58,7 +58,7 @@ layout = html.Div(
                         dbc.Col(
                             [
                                 html.Img(
-                                    src=app.get_asset_url("LuisM.jpg"),
+                                    src=app.get_asset_url("luisM.jpg"),
                                     height="250px",
                                     style=dalvarez,
                                 ),
@@ -197,7 +197,7 @@ layout = html.Div(
                         dbc.Col(
                             [
                                 html.Img(
-                                    src=app.get_asset_url("ximena.jpg"),
+                                    src=app.get_asset_url("Ximena.jpg"),
                                     height="250px",
                                     style=SIDEBAR,
                                 ),

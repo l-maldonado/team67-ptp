@@ -20,7 +20,7 @@ import pandas as pd
 import json
 
 # Recall app
-from app import app
+from app import app, server
 
 # external_stylesheets = [
 # "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
@@ -71,7 +71,8 @@ app.layout = html.Div(
 # Descriptive analytics
 descriptive_layout = html.Div(
     [
-        descriptive_analytics.layout  # ,
+        descriptive_analytics.layout,
+        descriptive_analytics.descriptive_tab
         # descriptive_analytics.boxplot_1,
         # descriptive_analytics.violinplot_1,
         # descriptive_analytics.heatmap_1,
@@ -91,7 +92,7 @@ about_layout = html.Div([about_us.layout])
 about_layout = html.Div([about_us.layout])
 
 
-#
+###############################################
 #           APP INTERACTIVITY:
 #
 ###############################################
@@ -111,4 +112,4 @@ def display_page(pathname):
 
 
 if __name__ == "__main__":
-    app.run_server(host="localhost", port="8050", debug=True)
+    app.run_server(debug=True)
