@@ -12,29 +12,7 @@ import dash_bootstrap_components as dbc
 from app import app
 
 # PLACE THE COMPONENTS IN THE LAYOUT
-
-dalvarez = {
-    "border-radius": "225px",
-    "background-color": "#F8F6F6",
-    # "border": "0px",
-    # "position": "fixed",
-    # "float": "right",
-    "margin": "10px auto",
-    "display": "block",
-}
-
-
-SIDEBAR = {
-    "border-radius": "125px",
-    "background-color": "#F8F6F6",
-    # "border": "0px",
-    # "position": "fixed",
-    # "left": 53,
-    # "float": "right",
-    "margin": "10px auto",
-    "display": "block",
-}
-
+PTP_LOGO = "../assets/ico2.png"
 
 layout = html.Div(
     [
@@ -60,55 +38,74 @@ layout = html.Div(
                                 html.Img(
                                     src=app.get_asset_url("luisM.jpg"),
                                     height="250px",
-                                    style=dalvarez,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Luis Gustavo Maldonado Archila",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Mechatronics Engineer",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="mailto:guislutavo@gmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.linkedin.com/in/luis-maldonado-04195974/",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                         dbc.Col(
                             [
                                 html.Img(
                                     src=app.get_asset_url("ed.jpeg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Edward Ortiz",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Product Manager | SWE - ML |",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="mailto:edwardarmandoortiz@gmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.linkedin.com/in/ortizedward/",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                     ],
-                    style={"height": "22rem"},
                 ),
                 dbc.Row(
                     [
@@ -117,52 +114,72 @@ layout = html.Div(
                                 html.Img(
                                     src=app.get_asset_url("jdarboleda.jpg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Juan D. Arboleda A.",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Industrial engineer",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="https://www.correlation-one.com/ds4a-latam",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.correlation-one.com/ds4a-latam",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                         dbc.Col(
                             [
                                 html.Img(
                                     src=app.get_asset_url("daniel.jpg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Daniel Salazar Castañeda",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Professional in Finance and International Relations",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="mailto:desc2609@gmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.linkedin.com/in/desc2609",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                     ]
                 ),
@@ -173,52 +190,72 @@ layout = html.Div(
                                 html.Img(
                                     src=app.get_asset_url("LuisH_.jpg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Luis Hernando Vanegas",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Statistician",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="mailto:hvanegasp@gmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="www.linkedin.com/in/lhvanegasp",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                         dbc.Col(
                             [
                                 html.Img(
                                     src=app.get_asset_url("Ximena.jpg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Ximena Astrid Borda Casallas",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
                                     "Statistician",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg",
+                                    href="mailto:xabordac@gmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.linkedin.com/in/ximena-astrid-borda-casallas-7630771b4/",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                     ]
                 ),
@@ -229,26 +266,36 @@ layout = html.Div(
                                 html.Img(
                                     src=app.get_asset_url("dalvarez_.jpg"),
                                     height="250px",
-                                    style=SIDEBAR,
+                                    className="img_marg",
                                 ),
                                 html.H5(
                                     "Diego Alvarez Monroy",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "20px",
-                                        "text-align": "center",
-                                    },
+                                    className="H5_margin",
                                 ),
                                 html.P(
-                                    "Computer and Telecommunications Engineering",
-                                    style={
-                                        "color": "#8190A5",
-                                        "margin-top": "0px",
-                                        "text-align": "center",
-                                    },
+                                    "Computer and Telecommunications Engineer",
+                                    className="P_margin",
+                                ),
+                                dbc.Button(
+                                    [
+                                        html.Img(
+                                            src=PTP_LOGO,
+                                            height="24px",
+                                            className="logo_correo",
+                                        )
+                                    ],
+                                    color="secondary",
+                                    className="correo_marg_d",
+                                    href="mailto:diesazul96@hotmail.com",
+                                ),
+                                dbc.Button(
+                                    "in",
+                                    size="lg",
+                                    color="secondary",
+                                    className="In_marg",
+                                    href="https://www.linkedin.com/in/diego-esteban-alvarez-monroy/",
                                 ),
                             ],
-                            # style={"left": 100},
                         ),
                     ]
                 ),
