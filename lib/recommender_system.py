@@ -18,7 +18,7 @@ layout = html.Div(
             [
                 html.H3("Recommender System", style={"color": "#F37126"}),
                 html.P(
-                    "Recommendation system that gives you the list of products that each of yur clienes are model likely to buy",
+                    "Recommendation system that gives you the list of products that each of your clienes are model likely to buy",
                     style={"color": "#8190A5", "font-weight": "bold"},
                 ),
             ],
