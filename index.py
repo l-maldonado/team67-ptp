@@ -52,12 +52,44 @@ from lib import (
 # app.config.supress_callback_exceptions = True
 
 # timeout = 20
+
+PTP_LOGO = "../static/images/placetopay.png"
+PTP_LOGO1 = "../assets/correlation_one2.png"
+PTP_LOGO2 = "../static/images/minlog.png"
+
 app.layout = html.Div(
     [
         dcc.Location(id="url", refresh=False),
         menu.Navbar(),
         html.Div(id="page-content"),
         # home.body,
+        html.Div(
+            [
+                dbc.Alert(
+                    [
+                        dbc.Row(
+                            [
+                                dbc.Button(
+                                    [html.Img(src=PTP_LOGO2, height="40px")],
+                                    active=True,
+                                    href="https://www.mintic.gov.co/portal/inicio/",
+                                    color="#F8F6F6",
+                                    className="logosinferiores",
+                                ),
+                                dbc.Button(
+                                    [html.Img(src=PTP_LOGO1, height="25px")],
+                                    active=True,
+                                    href="https://www.correlation-one.com/ds4a-latam",
+                                    color="#F8F6F6",
+                                    className="logosinferiores",
+                                ),
+                            ]
+                        ),
+                    ],
+                    className="barrainferior",
+                ),
+            ]
+        ),
     ]
     # className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
 )
