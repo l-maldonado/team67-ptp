@@ -18,51 +18,19 @@ from datetime import datetime as dt
 # Recall app
 from app import app
 
-
-# PTP_LOGO = app.get_asset_url("placetopay.png")
-# PTP_LOGO1 = app.get_asset_url("correlation_one1.png")
-
 PTP_LOGO = "../static/images/placetopay.png"
-PTP_LOGO1 = "../static/images/correlation_one1.png"
+PTP_LOGO1 = "../assets/home.png"
 
-SIDEBAR_STYLE = {
-    "position": "fixed",
-    "top": 12,
-    "left": 0,
-    "width": "0rem",
-    "background-color": "#ffffff",
-}
-SIDEBAR_STYLE1 = {
-    "position": "fixed",
-    "top": 10,
-    "left": 165,
-    "width": "0rem",
-    "background-color": "#ffffff",
-}
-#   "bottom": 0,
-# 20
 
-# PTP_LOGO = "../static/images/placetopay.png"
 def Navbar():
     navbar = dbc.NavbarSimple(
         children=[
-            html.A(
-                dbc.Row(
-                    [
-                        dbc.Col(
-                            html.Img(src=PTP_LOGO, height="35px"),
-                            style=SIDEBAR_STYLE,
-                        ),
-                        dbc.Col(
-                            html.Img(src=PTP_LOGO1, height="20px"),
-                            style=SIDEBAR_STYLE1,
-                        ),
-                    ],
-                    justify="start",
-                    no_gutters=False,
-                    # href="/home",
-                ),
-                href="/home",
+            dbc.Button(
+                [html.Img(src=PTP_LOGO, height="40px")],
+                active=True,
+                href="https://www.mintic.gov.co/portal/inicio/",
+                color="#F8F6F6",
+                className="menulogo",
             ),
             dbc.NavItem(
                 dbc.NavLink("Recommender System", href="/recommender_system"),
@@ -74,6 +42,7 @@ def Navbar():
                 dbc.NavLink("Descriptive Analytics", href="/descriptive_analytics")
             ),
             dbc.NavItem(dbc.NavLink("About Us", href="/about_us")),
+            dbc.NavItem(dbc.NavLink("Home", href="/home")),
         ],
         # brand="Home",
         # brand_href="/home",
