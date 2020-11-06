@@ -32,6 +32,7 @@ def Navbar():
                 color="#F8F6F6",
                 className="menulogo",
             ),
+            dbc.NavItem(dbc.NavLink("Home", href="/home")),
             dbc.NavItem(
                 dbc.NavLink("Recommender System", href="/recommender_system"),
             ),
@@ -42,7 +43,6 @@ def Navbar():
                 dbc.NavLink("Descriptive Analytics", href="/descriptive_analytics")
             ),
             dbc.NavItem(dbc.NavLink("About Us", href="/about_us")),
-            dbc.NavItem(dbc.NavLink("Home", href="/home")),
         ],
         # brand="Home",
         # brand_href="/home",
