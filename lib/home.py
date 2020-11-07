@@ -128,6 +128,11 @@ layout = html.Div(
                     ],
                     style={"height": "22rem"},
                 ),
+                html.Div(
+                    [
+                        dbc.Row(style={"height": "8rem"}),
+                    ]
+                ),
             ]
         ),
     ]

@@ -19,7 +19,11 @@ layout = html.Div(
             [
                 html.H3("Recommender System", style={"color": "#F37126"}),
                 html.P(
+<<<<<<< HEAD
                     "Recommendation system that gives you the list of products that each of your clients are model likely to buy",
+=======
+                    "Recommendation system that gives you the list of products that each of your clienes are model likely to buy",
+>>>>>>> bea526430517047e9c6c3d9bf34a65a534b7de28
                     style={"color": "#8190A5", "font-weight": "bold"},
                 ),
             ],
