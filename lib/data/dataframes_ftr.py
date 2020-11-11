@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import feather
 
-filepath = "E:/Users/edwar/Desktop/place_to_pay/team67-ptp/lib/data/db/isic_section_name_transaction_processing_amount.ftr"
+filepath = "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/data/transaction_payer_id_merchant_id.ftr"
+
 df_x = feather.read_dataframe(filepath)
 """
 df_x["logarithm"] = np.log(df_x["transaction_processing_amount"])
@@ -45,3 +46,8 @@ data_20_1
 
 df_x1
 """
+
+df_x.rename(
+    columns={"transaction_payer_id": "user", "merchant_id": "item"}, inplace=True
+)
+df_x
