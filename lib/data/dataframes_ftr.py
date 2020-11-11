@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import feather
 
-filepath = "data/transaction_payer_id_merchant_id.feather"
+filepath = "data/payer_merchant.feather"
 
 df_x = feather.read_dataframe(filepath)
 df_x.rename(
