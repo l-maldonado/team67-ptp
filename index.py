@@ -23,9 +23,6 @@ import json
 from app import app, server
 
 # external_stylesheets = [
-# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
-# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/ds4a_styles.css",
-# ]
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 

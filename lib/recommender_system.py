@@ -57,21 +57,6 @@ form = dbc.Row(
                             id="button",
                             n_clicks=0,
                         ),
-                        dbc.Modal(
-                            [
-                                dbc.ModalHeader("Header"),
-                                dbc.ModalBody("This modal is vertically centered"),
-                                dbc.ModalFooter(
-                                    dbc.Button(
-                                        "Close",
-                                        id="close-centered",
-                                        className="ml-auto",
-                                    )
-                                ),
-                            ],
-                            id="modal-centered",
-                            centered=True,
-                        ),
                     ],
                     className="sm-3",
                 ),
@@ -153,5 +138,4 @@ def update_output(n_clicks, value):
             # print("El comprador seleccionado tiene el siguiente identificador:{}".format(value))
         )
     # df_x[df_x["transaction_payer_id"]== "{}".format(value)]
-
     # "The payer id was {}".format(value)

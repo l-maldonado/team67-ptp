@@ -7,9 +7,6 @@ filepath = "team67-ptp/data/transaction_payer_id.ftr"
 df_test = pd.read_csv(filepath3, usecols=["transaction_payer_id"])
 print(df_test.head())
 """
-filepath = (
-    "C:/Users/anemi/OneDrive/Escritorio/dataframes/transaction_payer_id_merchant_id.ftr"
-)
 
 df_x = feather.read_dataframe(filepath)
 df_x.rename(
