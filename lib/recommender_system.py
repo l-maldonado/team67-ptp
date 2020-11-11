@@ -13,8 +13,8 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from app import app
 
-from .data.dataframes import df_x
-from .data.dataframes import ds_x
+from .data.dataframes_ftr import df_x
+from .data.dataframes_ftr import ds_x
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
@@ -61,21 +61,6 @@ form = dbc.Row(
                             style={"color": "#F37126"},
                             id="button",
                             n_clicks=0,
-                        ),
-                        dbc.Modal(
-                            [
-                                dbc.ModalHeader("Header"),
-                                dbc.ModalBody("This modal is vertically centered"),
-                                dbc.ModalFooter(
-                                    dbc.Button(
-                                        "Close",
-                                        id="close-centered",
-                                        className="ml-auto",
-                                    )
-                                ),
-                            ],
-                            id="modal-centered",
-                            centered=True,
                         ),
                     ],
                     className="sm-3",
@@ -124,39 +109,36 @@ def update_output(n_clicks, value):
         .sum()
         .sort_values(by="score", ascending=False)
     )
+    out2.rename(columns={"item": "merchant_id"}, inplace=True)
     out4 = out2.drop(["score"], axis=1)
+    result = (
+        html.Div(dbc.Row(style={"height": "1rem"})),
+        html.Div(["The payer if was :{}".format(value)]),
+        html.Div(dbc.Row(style={"height": "1rem"})),
+        html.Div("This customer has bought from:"),
+        html.Div(
+            [
+                dbc.Table.from_dataframe(
+                    out,
+                    striped=True,
+                    bordered=True,
+                    hover=True,
+                ),
+            ]
+        ),
+        html.Div(
+            "The recommendations for this client are as follows, from highest to lowest in order of importance"
+        ),
+        html.Div(
+            [
+                dbc.Table.from_dataframe(
+                    out2.head(5),
+                    striped=True,
+                    bordered=True,
+                    hover=True,
+                ),
+            ]
+        ),
+    )
     if n_clicks >= 1:
-        return (
-            html.Div(dbc.Row(style={"height": "1rem"})),
-            html.Div(["The payer if was :{}".format(value)]),
-            html.Div(dbc.Row(style={"height": "1rem"})),
-            html.Div("This customer has bought from:"),
-            html.Div(
-                [
-                    dbc.Table.from_dataframe(
-                        out,
-                        striped=True,
-                        bordered=True,
-                        hover=True,
-                    ),
-                ]
-            ),
-            html.Div(
-                "The recommendations for this client are as follows, from highest to lowest in order of importance"
-            ),
-            html.Div(
-                [
-                    dbc.Table.from_dataframe(
-                        out2.head(5),
-                        # df_x[df_x["user"] == "{}".format(value)],
-                        striped=True,
-                        bordered=True,
-                        hover=True,
-                    ),
-                ]
-            )
-            # print("El comprador seleccionado tiene el siguiente identificador:{}".format(value))
-        )
-    # df_x[df_x["transaction_payer_id"]== "{}".format(value)]
-
-    # "The payer id was {}".format(value)
+        return result
