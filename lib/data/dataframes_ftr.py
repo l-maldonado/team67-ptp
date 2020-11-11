@@ -2,7 +2,9 @@ import pandas as pd
 import numpy as np
 import feather
 
-filepath = "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/data/transaction_payer_id_merchant_id.ftr"
+filepath = (
+    "C:/Users/anemi/OneDrive/Escritorio/dataframes/transaction_payer_id_merchant_id.ftr"
+)
 
 df_x = feather.read_dataframe(filepath)
 """
