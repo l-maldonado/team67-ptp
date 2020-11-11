@@ -23,9 +23,6 @@ import json
 from app import app, server
 
 # external_stylesheets = [
-# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/x.css",
-# "C:/Users/anemi/OneDrive/Escritorio/Dash/team67-ptp/assets/ds4a_styles.css",
-# ]
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 
@@ -52,12 +49,44 @@ from lib import (
 # app.config.supress_callback_exceptions = True
 
 # timeout = 20
+
+PTP_LOGO = "../static/images/placetopay.png"
+PTP_LOGO1 = "../assets/correlation_one2.png"
+PTP_LOGO2 = "../static/images/minlog.png"
+
 app.layout = html.Div(
     [
         dcc.Location(id="url", refresh=False),
         menu.Navbar(),
         html.Div(id="page-content"),
         # home.body,
+        html.Div(
+            [
+                dbc.Alert(
+                    [
+                        dbc.Row(
+                            [
+                                dbc.Button(
+                                    [html.Img(src=PTP_LOGO2, height="40px")],
+                                    active=True,
+                                    href="https://www.mintic.gov.co/portal/inicio/",
+                                    color="#F8F6F6",
+                                    className="logosinferiores",
+                                ),
+                                dbc.Button(
+                                    [html.Img(src=PTP_LOGO1, height="25px")],
+                                    active=True,
+                                    href="https://www.correlation-one.com/ds4a-latam",
+                                    color="#F8F6F6",
+                                    className="logosinferiores",
+                                ),
+                            ]
+                        ),
+                    ],
+                    className="barrainferior",
+                ),
+            ]
+        ),
     ]
     # className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
 )
@@ -83,14 +112,10 @@ descriptive_layout = html.Div(
 clustering_layout = html.Div([clustering_analysis.layout])
 
 # Recommender System
-recommender_layout = html.Div([recommender_system.layout])
+recommender_layout = html.Div([recommender_system.layout, recommender_system.form])
 
 # About us
 about_layout = html.Div([about_us.layout])
-
-# About us part 2 for testong
-about_layout = html.Div([about_us.layout])
-
 
 ###############################################
 #           APP INTERACTIVITY:
@@ -112,4 +137,4 @@ def display_page(pathname):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
