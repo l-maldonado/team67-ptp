@@ -45,7 +45,7 @@ form = dbc.Row(
                         dbc.InputGroupAddon("payer id", addon_type="prepend"),
                         dbc.Input(
                             id="input-box",
-                            placeholder="Enter last 4 digits of merchant_id",
+                            placeholder="Enter payer id",
                             type="text",
                         ),
                         html.Br(),
