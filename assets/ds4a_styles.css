@@ -36,9 +36,10 @@
 
 .menulogo {
     position: fixed;
+    color: light;
     top: 0;
-    left: 0;
-    width: 0rem;
+    left: 0rem;
+    width: 12rem;
     background-color: #ffffff;
 }
 /* index */
@@ -92,4 +93,11 @@
 .In_marg{
     border-radius: 25px;
     margin: auto auto auto 20px;
+}
+/* Recommender system */
+
+.payer_id{
+    color: #8190A5;
+    margin-top: 0px;
+    text-align: center;
 }
