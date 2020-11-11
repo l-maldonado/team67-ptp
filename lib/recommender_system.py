@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
+import pandas as pd
 
 app = __import__("app").app
 # Dash Bootstrap Components
@@ -33,25 +34,32 @@ input_form = dbc.Row(
     dbc.Col(
         html.Div(
             [
-                html.P("Type merchant Id"),
+                html.P("Type payer id"),
                 dbc.InputGroup(
                     [
-                        dbc.InputGroupAddon("CO000000", addon_type="prepend"),
+                        html.Div(id="target"),
+                        # dbc.InputGroupAddon("CO000000", addon_type="prepend"),
                         dbc.Input(
                             id="input",
-                            placeholder="Enter last 4 digits of merchant_id",
+                            placeholder="Enter transaction payer id code",
                             type="text",
-                            size="20",
+                            value="",
+                            # max="9999",
+                            # min="0",
+                            maxLength="8",
+                            minLength="2",
                         ),
                         html.Br(),
-                        html.P(id="output"),
+                        html.P(id="target"),
                         dbc.Button(
                             "Submit",
                             outline=True,
                             color="link",
                             style={"color": "#F37126"},
+                            id="submit",
                         ),
                     ],
+                    html.Div(html.P(id="target")),
                     className="sm-3",
                 ),
             ],
@@ -60,9 +68,11 @@ input_form = dbc.Row(
     )
 )
 
-html.Datalist(id="browser", children=[html.Option(value="CO000000")]),
 
-
-@app.callback(Output("output", "children"), [Input("input", "value")])
-def output_text(value):
-    return None
+@app.callback(
+    Output(component_id="target", component_property="children"),
+    [Input(component_id="input", component_property="value")],
+    # [State(component_id="button", component_property="n_clicks")],
+)
+def input_payer(value):
+    return value
