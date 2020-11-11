@@ -28,8 +28,8 @@ def Navbar():
             dbc.Button(
                 [html.Img(src=PTP_LOGO, height="40px")],
                 active=True,
-                href="https://www.mintic.gov.co/portal/inicio/",
-                color="#F8F6F6",
+                href="https://www.placetopay.com/web/",
+                color="#FFFFFF",
                 className="menulogo",
             ),
             dbc.NavItem(dbc.NavLink("Home", href="/home")),
