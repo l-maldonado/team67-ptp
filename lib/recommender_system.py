@@ -12,8 +12,8 @@ import dash_html_components as html
 app = __import__("app").app
 import dash_bootstrap_components as dbc
 from app import app
-from .data.dataframes_ftr import ds_x
-from .data.postgresql.process_db import df_x
+from .data.dataframes import ds_x
+from .data.dataframes import df_x
 
 
 # PLACE THE COMPONENTS IN THE LAYOUT

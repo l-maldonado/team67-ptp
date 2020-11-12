@@ -10,10 +10,10 @@ user = "postgres"
 passc = "ds4ateam67"
 db = "postgres"
 
-connDB = create_engine(f"postgresql://{user}:{passc}@{host}:{port}/{db}")
-conn = connDB.raw_connection()
-cur = conn.cursor()
+# connDB = create_engine(f"postgresql://{user}:{passc}@{host}:{port}/{db}")
+# conn = connDB.raw_connection()
+# cur = conn.cursor()
 
-df_x = pd.read_sql("SELECT * FROM payer_merchant ", connDB)
-df_x.rename(columns={"payer": "user", "merchant": "item"}, inplace=True)
-df_x
+# df_x = pd.read_sql("SELECT * FROM payer_merchant ", connDB)
+# df_x.rename(columns={"payer": "user", "merchant": "item"}, inplace=True)
+# df_x
