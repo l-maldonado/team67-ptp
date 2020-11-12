@@ -7,16 +7,10 @@ from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
-import plotly.express as px
+# import plotly.express as px
 
 # Dash Bootstrap Components
 import dash_bootstrap_components as dbc
-
-# Data
-# import math
-# import numpy as np
-# import datetime as dt
-# import pandas as pd
 
 # Recall app
 from app import app, server
