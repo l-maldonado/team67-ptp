@@ -13,18 +13,13 @@ import plotly.express as px
 import dash_bootstrap_components as dbc
 
 # Data
-import math
-import numpy as np
-import datetime as dt
-import pandas as pd
-import json
+# import math
+# import numpy as np
+# import datetime as dt
+# import pandas as pd
 
 # Recall app
 from app import app, server
-
-# external_stylesheets = [
-# app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
 
 ###########################################################
 #

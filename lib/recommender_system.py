@@ -1,5 +1,6 @@
 # Basics Requirements
-import pathlib
+# import pathlib
+
 import pandas as pd
 import numpy as np
 import os
@@ -8,15 +9,12 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
-
 app = __import__("app").app
-# Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 from app import app
-
 from .data.dataframes_ftr import ds_x
 from .data.postgresql.process_db import df_x
+
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
