@@ -42,14 +42,6 @@ from lib import (
     about_us,
 )
 
-# from flask_caching import Cache
-
-# PLACE THE COMPONENTS IN THE LAYOUT
-# cache = Cache(app.server, config={"CACHE_TYPE": "filesystem", "CACHE_DIR": "cache"})
-# app.config.supress_callback_exceptions = True
-
-# timeout = 20
-
 PTP_LOGO = "../static/images/placetopay.png"
 PTP_LOGO1 = "../assets/correlation_one2.png"
 PTP_LOGO2 = "../static/images/minlog.png"
@@ -88,7 +80,6 @@ app.layout = html.Div(
             ]
         ),
     ]
-    # className="ds4a-app",  # You can also add your own css files by locating them into the assets folder
 )
 
 ###############################################
@@ -108,11 +99,12 @@ descriptive_layout = html.Div(
     ]
 )
 
-# Clustering Anaysis
+# Clustering Analysis
 clustering_layout = html.Div([clustering_analysis.layout])
 
 # Recommender System
-recommender_layout = html.Div([recommender_system.layout, recommender_system.form])
+recommender_layout = html.Div([recommender_system.layout,
+                               recommender_system.form])
 
 # About us
 about_layout = html.Div([about_us.layout])
@@ -121,8 +113,9 @@ about_layout = html.Div([about_us.layout])
 #           APP INTERACTIVITY:
 #
 ###############################################
+
+
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
-# @cache.memoize(timeout=timeout)  # in seconds
 def display_page(pathname):
     if pathname == "/recommender_system":
         return recommender_layout

@@ -7,10 +7,10 @@ from sqlalchemy import create_engine
 host = "place-to-pay-team-67.cnhuuzu3g5us.us-east-1.rds.amazonaws.com"
 port = 5432
 user = "postgres"
-password = "ds4ateam67"
-database = "postgres"
+passc = "ds4ateam67"
+db = "postgres"
 
-connDB = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{database}")
+connDB = create_engine(f"postgresql://{user}:{passc}@{host}:{port}/{db}")
 conn = connDB.raw_connection()
 cur = conn.cursor()
 
