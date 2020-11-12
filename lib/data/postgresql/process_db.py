@@ -14,13 +14,6 @@ connDB = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{database}
 conn = connDB.raw_connection()
 cur = conn.cursor()
 
-test = pd.read_sql("SELECT transaction_description FROM transactions ", connDB)
-test = (
-    test.groupby("transaction_description")
-    .size()
-    .reset_index()
-    .sort_values(by=[0], ascending=False)
-)
-test = test.reset_index(drop=True)
-test = test.rename(columns={0: "amount"})
-test
+df_x = pd.read_sql("SELECT * FROM payer_merchant ", connDB)
+df_x.rename(columns={"payer": "user", "merchant": "item"}, inplace=True)
+df_x

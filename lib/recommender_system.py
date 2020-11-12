@@ -15,8 +15,9 @@ app = __import__("app").app
 import dash_bootstrap_components as dbc
 from app import app
 
-from .data.dataframes_ftr import df_x
+# from .data.dataframes_ftr import df_x
 from .data.dataframes_ftr import ds_x
+from .data.postgresql.process_db import df_x
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
@@ -97,18 +98,17 @@ def update_output(n_clicks, value):
         out2, out, how="left", right_on="merchant_id", left_on="item", indicator=True
     )
     out2 = out2[out2["_merge"] == "left_only"]
-    out2["score"] = out2["similarity"] * out2["No.Compras_x"]
+    out2["score by %"] = round(100 * (out2["similarity"] * out2["No.Compras_x"]), 4)
     out2 = (
-        out2[["item", "score"]]
+        out2[["item", "score by %"]]
         .groupby(by="item", as_index=False)
         .sum()
-        .sort_values(by="score", ascending=False)
+        .sort_values(by="score by %", ascending=False)
     )
     out2.rename(columns={"item": "merchant_id"}, inplace=True)
-    out4 = out2.drop(["score"], axis=1)
     result = (
         html.Div(dbc.Row(style={"height": "1rem"})),
-        html.Div(["The payer if was :{}".format(value)]),
+        html.Div(["The payer id was : {}".format(value)]),
         html.Div(dbc.Row(style={"height": "1rem"})),
         html.Div("This customer has bought from:"),
         html.Div(
