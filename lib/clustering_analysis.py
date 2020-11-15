@@ -8,10 +8,12 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
-from .data.dataframes_ftr import df_c, cl_0, cl_1
+from .data.dataframes_ftr import get_df
 from app import app, cache
+#get_df = __import__("dataframes_ftr").get_df
 
 # PLACE THE COMPONENTS IN THE LAYOUT
+df_c = get_df()
 
 layout = html.Div(
     [
@@ -62,7 +64,7 @@ def update_graph(select):
     fig.add_trace(
         go.Bar(
             x=df_c["{}".format(select)],
-            y=(cl_0).value_counts(),
+            y=(df_c[df_c['cluster_predicted']==0]).value_counts(),
             name="cluster 0",
             marker_color="tomato",
         )
@@ -70,7 +72,7 @@ def update_graph(select):
     fig.add_trace(
         go.Bar(
             x=df_c["{}".format(select)],
-            y=(cl_1).value_counts(),
+            y=(df_c[df_c['cluster_predicted']==1]).value_counts(),
             name="cluster 1",
             marker_color="slategray",
         )
