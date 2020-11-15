@@ -8,13 +8,11 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
-from .data.dataframes_ftr import get_df
+#from .data.dataframes_ftr import get_df
 from app import app
 # from app import app, cache
 
 # PLACE THE COMPONENTS IN THE LAYOUT
-df_c = get_df()
-
 layout = html.Div(
     [
         dbc.Alert(
@@ -31,6 +29,7 @@ layout = html.Div(
     ]
 )
 
+"""
 available_indicators = ['transaction_card_type',
                         'merchant_classification',
                         'category_hour',
@@ -85,3 +84,4 @@ def update_graph(select):
     fig.update_layout(barmode="group")
 
     return fig
+"""

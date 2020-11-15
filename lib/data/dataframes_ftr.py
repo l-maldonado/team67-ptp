@@ -19,9 +19,9 @@ def get_db(filename=filename1):
     return df_x
 
 
-filename2 = "data/cluster2.feather"
+#filename2 = "data/cluster2.feather"
 # @cache.memoize(timeout=120)
-def get_df(filename=filename2):
+def get_df(filename):
     # Export cluster file for recommendation system
     df_c = feather.read_dataframe(filename)
     return df_c
