@@ -9,7 +9,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 from .data.dataframes_ftr import df_c, cl_0, cl_1
-from app import app
+from app import app, cache
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
@@ -56,6 +56,7 @@ cluster_tab = dbc.Row(
         dash.dependencies.Input("select", "value"),
     ],
 )
+@cache.memoize(timeout=120)
 def update_graph(select):
     fig = go.Figure()
     fig.add_trace(
