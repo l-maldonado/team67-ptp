@@ -31,7 +31,12 @@ layout = html.Div(
     ]
 )
 
-available_indicators = df_c.columns
+available_indicators = ['transaction_card_type',
+                        'merchant_classification',
+                        'category_hour',
+                        'category_paymentmethod_franchise',
+                        'category_response_code']
+                        
 cluster_tab = dbc.Row(
     dbc.Col(
         [
