@@ -1,7 +1,11 @@
+"""
+File to import csv file in data dir and convert into dataframe
+"""
 import pandas as pd
 
 filename1 = "data/transaction_merchant.csv"
-filename2 = "data/similarities.csv"
+filename2 = "data/similarities_2.csv"
+filename3 = "data/merchants.csv"
 
 df_x = pd.read_csv(filename1)
 df_x.rename(

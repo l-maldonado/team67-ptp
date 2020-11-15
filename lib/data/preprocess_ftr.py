@@ -9,8 +9,6 @@ preprocess_var = __import__("preprocessor").preprocess_var
 preprocess_mul = __import__("preprocessor").preprocess_mul
 
 # Usage
-#  Call the function depending how many variales you want to transform
-
-filename = "team67-ptp/data/placetopayDB4.ftr"
-# preprocess_mf(filename, "transaction_payer_id", "merchant_id")
+# Call the function depending how many variales you want to transform
+filename = "data/placetopayDB4.ftr"
 preprocess_mul(filename, "transaction_payer_id", "merchant_id")
