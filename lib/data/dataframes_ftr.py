@@ -8,9 +8,9 @@ import feather
 
 
 # Import payer_id and merchant_id for recommendation system
-filename1 = "data/bdsita.feather"
+#filename1 = "data/bdsita.feather"
 # @cache.memoize(timeout=120)
-def get_db(filename=filename1):
+def get_db(filename):
     df_x = feather.read_dataframe(filename1)
     df_x.rename(
         columns={"transaction_payer_id": "user",
@@ -21,7 +21,7 @@ def get_db(filename=filename1):
 
 #filename2 = "data/cluster2.feather"
 # @cache.memoize(timeout=120)
-def get_df(filename):
+def get_df(filename=filename2):
     # Export cluster file for recommendation system
     df_c = feather.read_dataframe(filename)
     return df_c

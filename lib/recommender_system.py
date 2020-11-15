@@ -8,11 +8,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from app import app
-from .data.dataframes import ds_x
-from .data.dataframes_ftr import get_db
+from .data.dataframes import ds_x, df_x
 app = __import__("app").app
 
-df_x = get_db()
 # PLACE THE COMPONENTS IN THE LAYOUT
 layout = html.Div(
     [
