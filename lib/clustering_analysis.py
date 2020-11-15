@@ -12,6 +12,7 @@ from .data.dataframes_ftr import df_c, cl_0, cl_1
 from app import app
 
 # PLACE THE COMPONENTS IN THE LAYOUT
+
 layout = html.Div(
     [
         dbc.Alert(
