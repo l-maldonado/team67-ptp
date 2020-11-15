@@ -9,11 +9,11 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-app = __import__("app").app
 import dash_bootstrap_components as dbc
 from app import app
 from .data.dataframes import ds_x
-from .data.dataframes import df_x
+from .data.dataframes_ftr import df_x
+app = __import__("app").app
 
 
 # PLACE THE COMPONENTS IN THE LAYOUT
@@ -81,7 +81,8 @@ def update_output(n_clicks, value):
         df_x[df_x["user"] == "{}".format(value)]
         .groupby(by="item", as_index=False)
         .count()
-    ).rename(columns={"item": "merchant_id", "user": "No.Compras"})
+    ).rename(columns={"item": "merchant_id",
+                      "user": "No.Compras"})
     out2 = (
         pd.merge(out, ds_x, how="inner",
                  left_on="merchant_id", right_on="item1")
@@ -100,7 +101,8 @@ def update_output(n_clicks, value):
         right_on="merchant_id", left_on="item", indicator=True
     )
     out2 = out2[out2["_merge"] == "left_only"]
-    out2["score by %"] = round(100 * (out2["similarity"] * out2["No.Compras_x"]), 4)
+    out2["score by %"] = round(100 * (out2["similarity"] *
+                                      out2["No.Compras_x"]), 4)
     out2 = (
         out2[["item", "score by %"]]
         .groupby(by="item", as_index=False)
