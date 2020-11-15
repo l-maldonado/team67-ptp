@@ -2,13 +2,14 @@
 import pathlib
 import os
 import dash
-from dash.dependencies import Input, Output, State, ClientsideFunction
-from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-
-# Dash Bootstrap Components
+import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output, State, ClientsideFunction
+from dash.exceptions import PreventUpdate
+from .data.dataframes_ftr import df_c, cl_0, cl_1
+from app import app
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 
@@ -28,49 +29,51 @@ layout = html.Div(
     ]
 )
 
-available_indicators = ['transaction_card_type',
-'merchant_classification',
-'category_hour',
-'category_paymentmethod_franchise',
-'category_response_code']
-
-cluster_tab=dbc.Row(
+available_indicators = df_c.columns
+cluster_tab = dbc.Row(
     dbc.Col(
         [
-        html.Div(
-            [
-            html.P("Choose a category", className="choose_category"),
-            ], 
-        ),
-        dbc.Select(
-            id="select",
-            options=[{"label":i,"value": i} for i in available_indicators],
-            value='transaction_card_type',
-        ),
-        dcc.Graph(id='indicator-graphic'),
+            html.Div(
+                [
+                    html.P("Choose a category", className="choose_category"),
+                ],
+            ),
+            dbc.Select(
+                id="select",
+                options=[{"label": i, "value": i} for i in available_indicators],
+                value="transaction_card_type",
+            ),
+            dcc.Graph(id="indicator-graphic"),
         ],
         width={"size": 6, "offset": 3},
     )
 )
 
-@app.callback(
-    dash.dependencies.Output('indicator-graphic', 'figure'),
-    [dash.dependencies.Input('select', 'value'),])
 
+@app.callback(
+    dash.dependencies.Output("indicator-graphic", "figure"),
+    [
+        dash.dependencies.Input("select", "value"),
+    ],
+)
 def update_graph(select):
     fig = go.Figure()
-    fig.add_trace(go.Bar(
-        x=df_c["{}".format(select)],
-        y=(df_c[df_c['cluster_predicted']==0]).value_counts(),
-        name='cluster 0',
-        marker_color='indianred'
-    ))
-    fig.add_trace(go.Bar(
-        x=df_c["{}".format(select)],
-        y=(df_c[df_c['cluster_predicted']==1]).value_counts(),
-        name='cluster 1',
-        marker_color='lightsalmon'
-    ))
-    fig.update_layout(barmode='group', xaxis_tickangle=-45)
+    fig.add_trace(
+        go.Bar(
+            x=df_c["{}".format(select)],
+            y=(cl_0).value_counts(),
+            name="cluster 0",
+            marker_color="tomato",
+        )
+    )
+    fig.add_trace(
+        go.Bar(
+            x=df_c["{}".format(select)],
+            y=(cl_1).value_counts(),
+            name="cluster 1",
+            marker_color="slategray",
+        )
+    )
+    fig.update_layout(barmode="group")
 
     return fig
