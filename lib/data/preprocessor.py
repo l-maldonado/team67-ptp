@@ -1,18 +1,18 @@
 import pandas as pd
 import numpy as np
 from IPython.display import Image
-
-# ---helper modules---
-
 import io
 import os
-
-# ---loading modules---
 import feather
 
 
 def preprocess_var(bd, var):
-    """Preprocessor a single variable to csv"""
+    """
+    Preprocessor a single variable to csv
+    Args:
+        bd: Database to preprocess
+        var: column to extract
+    """
     filepath_sv = f"team67-ptp/data/{var}.csv"
     filepath = bd
     data = feather.read_dataframe(filepath)
@@ -31,7 +31,13 @@ def preprocess_var(bd, var):
 
 
 def preprocess_mul(bd, var1, var2):
-    """Preprocessor two variables to csv"""
+    """
+    Preprocessor a two variables to csv
+    Args:
+        bd: Database to preprocess
+        var1: column to extract
+        var2: column to extract
+    """
     filepath_mv = f"team67-ptp/data/{var1}_{var2}.csv"
     filepath = bd
     data = feather.read_dataframe(filepath)
@@ -60,7 +66,12 @@ def preprocess_mul(bd, var1, var2):
 
 
 def preprocess_sf(bd, var):
-    """Preprocessor a single variable to feather"""
+    """
+    Preprocessor a single variable to feather
+    Args:
+        bd: Database to preprocess
+        var: column to extract
+    """
     filepath_svf = f"team67-ptp/data/{var}.ftr"
     filepath = bd
     data = feather.read_dataframe(filepath)
@@ -79,7 +90,13 @@ def preprocess_sf(bd, var):
 
 
 def preprocess_mf(bd, var1, var2):
-    """Preprocessor two variables to feather"""
+    """
+    Preprocessor a two variables to feather
+    Args:
+        bd: Database to preprocess
+        var1: column to extract
+        var2: column to extract
+    """
     filepath_mvf = f"team67-ptp/data/{var1}_{var2}.ftr"
     filepath = bd
     data = feather.read_dataframe(filepath)
@@ -108,7 +125,14 @@ def preprocess_mf(bd, var1, var2):
 
 
 def preprocess_mf3(bd, var1, var2, var3):
-    """Preprocessor a three variables to feather"""
+    """
+    Preprocessor three variables to feather
+    Args:
+        bd: Database to preprocess
+        var1: column to extract
+        var2: column to extract
+        var2: column to extract
+    """
     filepath_mvf = f"team67-ptp/data/{var1}_{var2}_{var3}.ftr"
     filepath = bd
     data = feather.read_dataframe(filepath)

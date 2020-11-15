@@ -1,3 +1,8 @@
+"""
+File to call any data from a RDS instance of postsgresql
+to the application
+"""
+
 import pandas as pd
 import numpy as np
 import re

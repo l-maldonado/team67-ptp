@@ -7,14 +7,15 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from datetime import datetime as dt
-
-# Recall app
 from app import app
 
+
+# Gloabl variables
 PTP_LOGO = "../static/images/placetopay.png"
 PTP_LOGO1 = "../assets/home.png"
 
 
+# Function for calling navigation bar
 def Navbar():
     navbar = dbc.NavbarSimple(
         children=[

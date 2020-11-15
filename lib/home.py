@@ -6,17 +6,14 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-
-# Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 
-# PLACE THE COMPONENTS IN THE LAYOUT
 
-
-# Global vars
+# Global variables (links of Power BI dashboards)
 recommeder = "/static/images/recomm.png"
 descriptive = "/static/images/descriptive_2.png"
 
+# Layout of main components
 layout = html.Div(
     [
         dbc.Alert(
@@ -31,6 +28,7 @@ layout = html.Div(
             ],
             style={"background-color": "#F8F6F6", "border": "0px"},
         ),
+        # Adding container with dashboards
         dbc.Container(
             [
                 html.Div(
@@ -90,9 +88,13 @@ layout = html.Div(
                                                 className="card-title",
                                             ),
                                             html.P(
-                                                "Here you will find an analysis of how your clients relate "
-                                                "to each other based on their transaction behavior, "
-                                                "allowing you to have a new variable to segment them.",
+                                                "Here you will find an \
+                                                 analysis of how your \
+                                                 clients relate "
+                                                "to each other based on \
+                                                 their transaction behavior, "
+                                                "allowing you to have a new \
+                                                 variable to segment them.",
                                                 className="card-text",
                                             ),
                                             dbc.Button(

@@ -1,6 +1,3 @@
-# Basics Requirements
-# import pathlib
-
 import pandas as pd
 import numpy as np
 import os
@@ -17,7 +14,6 @@ app = __import__("app").app
 
 
 # PLACE THE COMPONENTS IN THE LAYOUT
-
 layout = html.Div(
     [
         dbc.Alert(

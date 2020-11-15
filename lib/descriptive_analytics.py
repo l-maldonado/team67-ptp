@@ -28,10 +28,10 @@ layout = html.Div(
     ]
 )
 
-descriptive_map = "https://app.powerbi.com/view?r=eyJrIjoiMmI1MzkwNmEtZThkNi00ZTk3LThjZWYtYjgwOGI0NDQ5ZmVjIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9&pageName=ReportSection8e92f1ee166027c23cfa"
-descriptive_1 = "https://app.powerbi.com/view?r=eyJrIjoiMTAzMDk0ZmMtMjk1NC00ZjE3LThjZWQtYjUwMjE0YTE4MWUzIiwidCI6ImZhYmQwNDdjLWZmNDgtNDkyYS04YmJiLThmOThiOWZiOWNjYSIsImMiOjR9"
+descriptive_map = "https://tinyurl.com/y52pgpd2"
+descriptive_1 = "https://tinyurl.com/y6qby2zo"
 
-# Tabs description for analytics
+# Tab1 of the descriptive dashboard
 tab1_content = dbc.Card(
     dbc.CardBody(
         [
@@ -72,6 +72,7 @@ tab1_content = dbc.Card(
     className="mt-3",
 )
 
+# Tab2 of the geographical map
 tab2_content = dbc.Card(
     dbc.CardBody(
         [
@@ -115,6 +116,7 @@ tab2_content = dbc.Card(
     className="mt-3",
 )
 
+# Component to call dashboard in tabs
 descriptive_tab = dbc.Tabs(
     [
         dbc.Tab(tab1_content, label="Transactions and Merchants information"),
@@ -124,6 +126,7 @@ descriptive_tab = dbc.Tabs(
 )
 
 
+# Callback function for message info
 @app.callback(
     Output("alert-fade", "is_open"),
     [Input("alert-toggle-fade", "n_clicks")],
@@ -135,6 +138,7 @@ def toggle_alert(n, is_open):
     return is_open
 
 
+# Callback function for message info
 @app.callback(
     Output("alert-no-fade", "is_open"),
     [Input("alert-toggle-no-fade", "n_clicks")],
