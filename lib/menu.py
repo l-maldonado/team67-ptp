@@ -8,7 +8,6 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from datetime import datetime as dt
 
-
 # Recall app
 from app import app
 
@@ -28,19 +27,17 @@ def Navbar():
             ),
             dbc.NavItem(dbc.NavLink("Home", href="/home")),
             dbc.NavItem(
-                dbc.NavLink("Recommender System", href="/recommender_system"),
+                dbc.NavLink("Descriptive Analytics",
+                            href="/descriptive_analytics")
             ),
             dbc.NavItem(
                 dbc.NavLink("Clustering Analysis", href="/clustering_analysis")
             ),
             dbc.NavItem(
-                dbc.NavLink("Descriptive Analytics",
-                            href="/descriptive_analytics")
+                dbc.NavLink("Recommender System", href="/recommender_system"),
             ),
             dbc.NavItem(dbc.NavLink("About Us", href="/about_us")),
         ],
-        # brand="Home",
-        # brand_href="/home",
         sticky="top",
         color="#FEFEFE",
     )
