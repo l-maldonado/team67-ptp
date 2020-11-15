@@ -7,7 +7,6 @@ from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
-# import plotly.express as px
 
 # Dash Bootstrap Components
 import dash_bootstrap_components as dbc
@@ -21,26 +20,30 @@ from app import app, server
 #
 ###########################################################
 
-# LOAD THE DIFFERENT FILES
+# Import components
 from lib import (
     menu,
     home,
-    clustering_analysis,
     descriptive_analytics,
+    clustering_analysis,
     recommender_system,
     about_us,
 )
 
+# Variables of static files
 PTP_LOGO = "../static/images/placetopay.png"
 PTP_LOGO1 = "../assets/correlation_one2.png"
 PTP_LOGO2 = "../static/images/minlog.png"
+mintic = "https://www.mintic.gov.co/portal/inicio/"
+correlation = "https://www.correlation-one.com/ds4a-latam"
 
+
+# Main layout: contains the main layot with multiple pages
 app.layout = html.Div(
     [
         dcc.Location(id="url", refresh=False),
         menu.Navbar(),
         html.Div(id="page-content"),
-        # home.body,
         html.Div(
             [
                 dbc.Alert(
@@ -50,14 +53,14 @@ app.layout = html.Div(
                                 dbc.Button(
                                     [html.Img(src=PTP_LOGO2, height="40px")],
                                     active=True,
-                                    href="https://www.mintic.gov.co/portal/inicio/",
+                                    href=mintic,
                                     color="#F8F6F6",
                                     className="logosinferiores",
                                 ),
                                 dbc.Button(
                                     [html.Img(src=PTP_LOGO1, height="25px")],
                                     active=True,
-                                    href="https://www.correlation-one.com/ds4a-latam",
+                                    href=correlation,
                                     color="#F8F6F6",
                                     className="logosinferiores",
                                 ),
@@ -89,7 +92,8 @@ descriptive_layout = html.Div(
 )
 
 # Clustering Analysis
-clustering_layout = html.Div([clustering_analysis.layout])
+clustering_layout = html.Div([clustering_analysis.layout,
+                              clustering_analysis.cluster_tab])
 
 # Recommender System
 recommender_layout = html.Div([recommender_system.layout,
@@ -119,4 +123,4 @@ def display_page(pathname):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app.run_server(debug=True)
