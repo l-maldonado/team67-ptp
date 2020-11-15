@@ -7,7 +7,7 @@
 
 import dash
 import dash_bootstrap_components as dbc
-from flask_caching import Cache
+# from flask_caching import Cache
 
 app = dash.Dash(
     __name__,
@@ -15,11 +15,12 @@ app = dash.Dash(
     title="placetopay recommender system",
 )
 
+"""
 cache = Cache(app.server, config={
     'CACHE_TYPE': 'filesystem',
     'CACHE_DIR': 'cache-directory'
 })
-
+"""
 server = app.server
 
 # We need this for function callbacks not present in the app.layout
