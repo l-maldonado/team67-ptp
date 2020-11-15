@@ -41,7 +41,7 @@ available_indicators = ['transaction_card_type',
 'merchant_classification',
 'category_hour',
 'category_paymentmethod_franchise',
- 'category_response_code']
+'category_response_code']
 
 cluster_tab=dbc.Row(
     dbc.Col(
@@ -53,7 +53,13 @@ cluster_tab=dbc.Row(
         ),
         dbc.Select(
             id="select",
-            options=[i for i in available_indicators],
+            #options={'transaction_card_type':1,
+            #'merchant_classification':2,
+            #'category_hour':3,
+            #'category_paymentmethod_franchise':4,
+            #'category_response_code':5},
+            options=[{"label":i,"value": i} for i in available_indicators],
+            value='transaction_card_type',
         ),
         dcc.Graph(id='indicator-graphic'),
         ],
