@@ -6,24 +6,29 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-
-# Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 
-# PLACE THE COMPONENTS IN THE LAYOUT
 
+# Global variables (links of Power BI dashboards)
+recommeder = "/static/images/recomm.png"
+descriptive = "/static/images/descriptive_2.png"
+
+# Layout of main components
 layout = html.Div(
     [
         dbc.Alert(
             [
-                html.H3("Transactional Analytics Platform", style={"color": "#F36E21"}),
+                html.H3("Transactional \
+                    Analytics Platform", style={"color": "#F36E21"}),
                 html.P(
-                    "Place to pay analytical platform for the analysis of the transactional behavior of your customers",
+                    "Placetopay analytical platform for the analysis \
+                        of the transactional behavior of your customers",
                     style={"color": "#8190A5", "font-weight": "bold"},
                 ),
             ],
             style={"background-color": "#F8F6F6", "border": "0px"},
         ),
+        # Adding container with dashboards
         dbc.Container(
             [
                 html.Div(
@@ -37,7 +42,7 @@ layout = html.Div(
                             dbc.Card(
                                 [
                                     dbc.CardImg(
-                                        src="/static/images/recomm.png", top=True
+                                        src=recommeder, top=True
                                     ),
                                     dbc.CardBody(
                                         [
@@ -46,9 +51,14 @@ layout = html.Div(
                                                 className="card-title",
                                             ),
                                             html.P(
-                                                "A recommendation system that gives you the list of "
-                                                "products that each of your clients are model likely to buy, "
-                                                "based on their past transactional behavior and other users "
+                                                "A recommendation system \
+                                                that gives you the list of "
+                                                "products that each of your \
+                                                clients are model likely to \
+                                                buy, "
+                                                "based on their past \
+                                                transactional behavior and \
+                                                other users "
                                                 "behavior",
                                                 className="card-text",
                                             ),
@@ -78,9 +88,13 @@ layout = html.Div(
                                                 className="card-title",
                                             ),
                                             html.P(
-                                                "Here you will find an analysis of how your clients relate "
-                                                "to each other based on their transaction behavior, "
-                                                "allowing you to have a new variable to segment them.",
+                                                "Here you will find an \
+                                                 analysis of how your \
+                                                 clients relate "
+                                                "to each other based on \
+                                                 their transaction behavior, "
+                                                "allowing you to have a new \
+                                                 variable to segment them.",
                                                 className="card-text",
                                             ),
                                             dbc.Button(
@@ -98,7 +112,7 @@ layout = html.Div(
                             dbc.Card(
                                 [
                                     dbc.CardImg(
-                                        src="../static/images/descriptive_2.png",
+                                        src=descriptive,
                                         top=True,
                                     ),
                                     dbc.CardBody(
@@ -108,9 +122,12 @@ layout = html.Div(
                                                 className="card-title",
                                             ),
                                             html.P(
-                                                "A place where you will be able to found some important "
-                                                "insights about your clients and their transactions "
-                                                "using interactive dashboards and plots that we design "
+                                                "A place where you will be \
+                                                able to found some important "
+                                                "insights about your clients \
+                                                and their transactions "
+                                                "using interactive dashboards \
+                                                and plots that we design "
                                                 "to make your job easier",
                                                 className="card-text",
                                             ),

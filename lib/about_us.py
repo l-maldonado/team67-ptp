@@ -6,14 +6,19 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 import dash_core_components as dcc
 import dash_html_components as html
-
-# Dash Bootstrap Components
 import dash_bootstrap_components as dbc
 from app import app
 
-# PLACE THE COMPONENTS IN THE LAYOUT
+# Global variables
 PTP_LOGO = "../assets/ico2.png"
+luislink = "https://www.linkedin.com/in/luis-maldonado-04195974/"
+edwardlink = "https://www.linkedin.com/in/ortizedward/"
+juandlink = "https://www.linkedin.com/in/jdarboleda/en"
+daniellink = "https://www.linkedin.com/in/desc2609"
+xilink = "https://www.linkedin.com/in/ximena-astrid-borda-casallas-7630771b4/"
+dlink = "https://www.linkedin.com/in/diego-esteban-alvarez-monroy/"
 
+# Layout of main components
 layout = html.Div(
     [
         dbc.Alert(
@@ -65,7 +70,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/luis-maldonado-04195974/",
+                                    href=luislink,
                                 ),
                             ],
                         ),
@@ -101,7 +106,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/ortizedward/",
+                                    href=edwardlink,
                                 ),
                             ],
                         ),
@@ -141,7 +146,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/jdarboleda/en",
+                                    href=juandlink,
                                 ),
                             ],
                         ),
@@ -157,7 +162,8 @@ layout = html.Div(
                                     className="H5_margin",
                                 ),
                                 html.P(
-                                    "Professional in Finance and International Relations",
+                                    "Professional in Finance \
+                                        and International Relations",
                                     className="P_margin",
                                 ),
                                 dbc.Button(
@@ -177,7 +183,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/desc2609",
+                                    href=daniellink,
                                 ),
                             ],
                         ),
@@ -253,7 +259,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/ximena-astrid-borda-casallas-7630771b4/",
+                                    href=xilink,
                                 ),
                             ],
                         ),
@@ -293,7 +299,7 @@ layout = html.Div(
                                     size="lg",
                                     color="secondary",
                                     className="In_marg",
-                                    href="https://www.linkedin.com/in/diego-esteban-alvarez-monroy/",
+                                    href=dlink,
                                 ),
                             ],
                         ),
