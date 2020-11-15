@@ -10,7 +10,6 @@ from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 from .data.dataframes_ftr import get_df
 from app import app, cache
-#get_df = __import__("dataframes_ftr").get_df
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 df_c = get_df()
