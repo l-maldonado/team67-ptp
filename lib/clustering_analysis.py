@@ -53,11 +53,6 @@ cluster_tab=dbc.Row(
         ),
         dbc.Select(
             id="select",
-            #options={'transaction_card_type':1,
-            #'merchant_classification':2,
-            #'category_hour':3,
-            #'category_paymentmethod_franchise':4,
-            #'category_response_code':5},
             options=[{"label":i,"value": i} for i in available_indicators],
             value='transaction_card_type',
         ),
