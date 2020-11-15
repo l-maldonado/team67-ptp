@@ -5,7 +5,7 @@ import pandas as pd
 # from app import cache
 
 filename1 = "data/transaction_merchant.csv"
-filename2 = "data/similarities_2.csv"
+filename2 = "data/similarities.csv"
 filename3 = "data/merchants.csv"
 
 
