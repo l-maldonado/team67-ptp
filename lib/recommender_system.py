@@ -12,7 +12,7 @@ from .data.dataframes import ds_x
 #from .data.dataframes_ftr import df_x
 app = __import__("app").app
 #get_db = __import__("data.dataframes_ftr").get_db
-from .data.dataframes_ftr import get_db
+from .data.dataframes import get_db
 
 df_x = get_db()
 
