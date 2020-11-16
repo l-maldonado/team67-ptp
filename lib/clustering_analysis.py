@@ -89,7 +89,7 @@ def update_graph(select):
                                  titlefont_size=16,
                                  tickfont_size=14,   
                                 ),
-                      yaxis=dict(title='Transaction Amount',
+                      yaxis=dict(title='Number transactions',
                                  titlefont_size=16,
                                  tickfont_size=14,
                                 ),

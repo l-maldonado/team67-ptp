@@ -25,7 +25,7 @@ from lib import (
     menu,
     home,
     descriptive_analytics,
-    clustering_analysis,
+    clustering_analysis_2,
     recommender_system,
     about_us,
 )
@@ -85,15 +85,12 @@ descriptive_layout = html.Div(
     [
         descriptive_analytics.layout,
         descriptive_analytics.descriptive_tab
-        # descriptive_analytics.boxplot_1,
-        # descriptive_analytics.violinplot_1,
-        # descriptive_analytics.heatmap_1,
     ]
 )
 
 # Clustering Analysis
-clustering_layout = html.Div([clustering_analysis.layout,
-                              clustering_analysis.cluster_tab])
+clustering_layout = html.Div([clustering_analysis_2.layout,
+                              clustering_analysis_2.cluster_tab])
 
 # Recommender System
 recommender_layout = html.Div([recommender_system.layout,

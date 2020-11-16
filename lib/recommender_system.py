@@ -76,7 +76,7 @@ def update_output(n_clicks, value):
         .groupby(by="item", as_index=False)
         .count()
     ).rename(columns={"item": "merchant_id",
-                      "user": "No.Compras"})
+                      "user": "No.Purchases"})
     out2 = (
         pd.merge(out, ds_x, how="inner",
                  left_on="merchant_id", right_on="item1")
@@ -96,7 +96,7 @@ def update_output(n_clicks, value):
     )
     out2 = out2[out2["_merge"] == "left_only"]
     out2["score by %"] = round(100 * (out2["similarity"] *
-                                      out2["No.Compras_x"]), 4)
+                                      out2["No.Purchases_x"]), 4)
     out2 = (
         out2[["item", "score by %"]]
         .groupby(by="item", as_index=False)
