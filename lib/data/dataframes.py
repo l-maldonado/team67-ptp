@@ -6,7 +6,8 @@ import pandas as pd
 
 filename1 = "data/transaction_merchant.csv"
 filename2 = "data/similarities.csv"
-filename3 = "data/cluster_test_cat.csv"
+filename3 = "data/cluster_test.csv"
+filename4 = "data/cluster_cat_names.csv"
 
 
 df_x = pd.read_csv(filename1)
@@ -21,3 +22,6 @@ ds_x
 
 df_c = pd.read_csv(filename3)
 df_c
+
+df_c2 = pd.read_csv(filename4)
+df_c2

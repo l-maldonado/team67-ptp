@@ -11,7 +11,7 @@ from dash.exceptions import PreventUpdate
 #from .data.dataframes_ftr import get_df
 from app import app
 # from app import app, cache
-from .data.dataframes import df_c
+from .data.dataframes import df_c, df_c2
 
 
 
@@ -84,6 +84,17 @@ def update_graph(select):
             marker_color="slategray",
         )
     )
-    fig.update_layout(barmode="group")
-
+    fig.update_layout(title="Clusterization by {}".format(select),
+                      xaxis=dict(title=df_c['{}'.format(select)].name,
+                                 titlefont_size=16,
+                                 tickfont_size=14,   
+                                ),
+                      yaxis=dict(title='Transaction Amount',
+                                 titlefont_size=16,
+                                 tickfont_size=14,
+                                ),
+                      barmode='group',
+                    )
+    fig.update_xaxes(ticktext = [text for text in df_c2['{}'.format(select)].unique()],
+                     tickvals = [val for val in df_c['{}'.format(select)].unique()])
     return fig
