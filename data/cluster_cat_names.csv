@@ -1,0 +1,7 @@
+transaction_card_type,merchant_classification,category_hour,category_paymentmethod_franchise,category_response_code,cluster_predicted
+D,A+,(11-12),PSE,APPROVED,0
+C,B+,(18-23),MASTERCARD,REJECTED,0
+A,A,(0-10),VISA,FAILED,0
+R,C,(15-17),AMEX,PENDING,1
+D,B,(15-17),DINERS,PENDING,1
+A,N,(15-17),DISCOVER,PENDING,1
