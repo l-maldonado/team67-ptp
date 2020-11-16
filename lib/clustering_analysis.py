@@ -11,6 +11,9 @@ from dash.exceptions import PreventUpdate
 #from .data.dataframes_ftr import get_df
 from app import app
 # from app import app, cache
+from .data.dataframes import df_c
+
+
 
 # PLACE THE COMPONENTS IN THE LAYOUT
 layout = html.Div(
@@ -29,7 +32,7 @@ layout = html.Div(
     ]
 )
 
-"""
+
 available_indicators = ['transaction_card_type',
                         'merchant_classification',
                         'category_hour',
@@ -84,4 +87,3 @@ def update_graph(select):
     fig.update_layout(barmode="group")
 
     return fig
-"""
