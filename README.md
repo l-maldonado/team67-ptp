@@ -25,9 +25,9 @@ This project is not totally public, so there are only temporary public web apps 
 It is also expected that the user is familiarized with programing, executing and debugging Data Analytics tasks, like data cleaning, data wrangling and statistical description of the data. Libraries used include Pandas, Scikit-learn, NLTK, Plot.ly, Seaborn, among others.
 
 Here is a Datafolio description of the process:
-![image.png](./static/images/Datafolio Portfolio 1.jpg)
+![image.png](./static/images/Datafolio1.jpg)
 
-![image.png](./static/images/Datafolio Portfolio 2.jpg)
+![image.png](./static/images/Datafolio2.jpg)
 
 
 
@@ -64,7 +64,7 @@ You can run the app on your browser at http://127.0.0.1:8050
 
 ## Screenshots
 
-![image.png](./static/images/Peek intro.gif)
-![image.png](./static/images/Peek descriptive 2.gif)
-![image.png](./static/images/Peek geo2.gif)
-![image.png](./static/images/Peek recommender.gif)
+![image.png](./static/images/PeekIntro.gif)
+![image.png](./static/images/PeekDescriptive 2.gif)
+![image.png](./static/images/PeekGeo2.gif)
+![image.png](./static/images/PeekRecommender.gif)
